@@ -1,0 +1,71 @@
+@import '../../scss/main.scss';
+
+.myHeader{
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    opacity: 0.7;
+    .myHeader_movie{
+        .header_signin_collapse{
+            display: none;
+        }
+        .nav-item{
+            .nav-link{
+                color: $color-black-0;
+                font-size: $fs-0;
+                transition: all 0.3s;
+            }
+            &:hover{
+                .nav-link{
+                    color: $color-orange-0;
+                    
+                }
+            }
+        }
+    }
+
+    .myHeader_user{
+        display: flex;
+        .nav-item{
+            .nav-link{
+                color: $color-black-0;
+                font-size: $fs-0;
+            }
+        }
+    }
+}
+
+.myHeader{
+    .navbar{
+        .navbar-toggler{
+            @media screen and (max-width: 760px){
+                margin-left: auto;
+            }
+        }
+
+        .myHeader_user{
+            @media screen and (max-width: 760px){
+                opacity: 0;
+                visibility: hidden;
+                display: none;
+            }
+        }
+        
+        .myHeader_movie.navbar-collapse{
+            @media screen and (max-width: 760px){
+                text-align: center;
+                .header_signin_collapse{
+                    display: block;
+                }
+                .nav-item{
+                    .nav-link{
+                        font-size: $fs-2 - 2;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+

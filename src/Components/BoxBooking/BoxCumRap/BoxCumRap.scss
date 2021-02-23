@@ -1,0 +1,38 @@
+@import "../../../scss/main.scss";
+
+.myBoxCumRap {
+    border: 1px solid $color-gray-1;
+    .myBoxCumRap_item {
+        position: relative;
+        padding: 15px;
+        opacity: 0.5;
+        .myBoxCumRap_intro {
+            margin-left: 10px;
+            align-self: center;
+            p:nth-child(1) {
+                font-size: $fs-0;
+                color: $color-black-0;
+                font-weight: 600;
+            }
+            p:nth-child(2) {
+                font-size: $fs-0 - 2;
+                color: $color-gray-3;
+                font-weight: 600;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            width: 90%;
+            margin: 0 auto;
+            height: 2px;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            background-color: $color-gray-2;
+        }
+    }
+    .active{
+        opacity: 1;
+    }
+}

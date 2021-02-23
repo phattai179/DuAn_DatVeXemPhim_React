@@ -1,0 +1,20 @@
+@import '../../scss/main.scss';
+
+.myListFilm{
+    .myListFilm_title{
+        color: $color-black-0;
+        font-size: $fs-4;
+        outline: none;
+        margin: 10px;
+        border: none;
+        background-color: transparent;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    .active{
+        color: $color-orange-0;
+    }
+
+
+}

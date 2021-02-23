@@ -1,0 +1,30 @@
+@import '../../../scss/main.scss';
+
+.myBoxHeThongRap{
+    border: 1px solid $color-gray-1;
+    .myBoxHeThongRap_content{
+        a{
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            opacity: 0.5;
+            cursor: pointer;
+            &::after{
+                content: "";
+                position: absolute;
+                width: 60%;
+                margin: 0 auto;
+                height: 2px;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                background-color: $color-gray-2;
+            }
+        }
+        .active{
+            opacity: 1;
+        }
+    }
+}

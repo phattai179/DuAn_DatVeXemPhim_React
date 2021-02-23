@@ -1,0 +1,36 @@
+@import '../../../scss/main.scss';
+
+.myBoxLichChieu{
+    border: 1px solid $color-gray-1;
+    .myBoxLichChieu_itemPhim{
+        position: relative;
+        padding: 10px;
+        img{
+            border: 1px solid $color-gray-0;
+        }
+        .myBoxLichChieu_intro{
+            p:nth-child(1){
+                margin-bottom: 0;
+                margin-left: 15px;
+                color: $color-black-1;
+                font-size: $fs-2;
+                font-weight: 700;
+            };
+            p:nth-child(2){
+                margin-bottom: 0;
+                margin-left: 15px;
+                color: $color-gray-0;
+                font-size: $fs-1;
+            }
+            
+        }
+        .myBoxLichChieu_icon{
+            position: absolute;
+            right: 20px;
+            i{
+                font-size: $fs-4;
+                cursor: pointer;
+            }
+        }
+    }
+}

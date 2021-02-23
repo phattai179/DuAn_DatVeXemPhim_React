@@ -1,0 +1,99 @@
+// Chỉnh sửa carousel
+.myCarousel {
+    .carousel {
+        .carousel-indicators {
+            .carousel_dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 0 10px;
+            }
+            .active {
+                opacity: 1;
+                background-color: $color-orange-0;
+            }
+        }
+
+        .carousel-control-next-icon {
+            font-size: 40px;
+            width: 100%;
+            height: 40px;
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                height: 30px;
+            }
+        }
+        .carousel-control-prev-icon {
+            @extend .carousel-control-next-icon;
+        }
+    }
+}
+
+// Chỉnh sửa popupModal
+.modal-video-inner {
+    @media screen and (max-width: 1100px) {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        width: 90%;
+        margin: 0 auto;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        width: 80%;
+        margin: 0 auto;
+        height: 100%;
+    }
+}
+
+// Chỉnh sửa arrow React-slick
+.myListFilm {
+    .myListFilm_content {
+        .slick-next {
+            top: 44%;
+            right: 0px;
+            &::before {
+                position: absolute;
+                font-size: 40px;
+                color: grey;
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 600;
+                content: "\f054"
+            }
+        }
+        .slick-prev {
+            @extend .slick-next;
+            left: -30px;
+            &::before{
+                content: "\f053";
+            }
+        }
+    }
+}
+
+.myListFilm {
+    @media screen and (max-width: 768px) {
+        .myListFilm_content {
+            .slick-next {
+                top: 48%;
+                right: -9px;
+                &::before {
+                    font-size: 25px;
+                    color: grey;
+                }
+            }
+            .slick-prev {
+                top: 48%;
+                left: -12px;
+                &::before {
+                    font-size: 25px;
+                    color: grey;
+                }
+            }
+        }
+    }
+}
