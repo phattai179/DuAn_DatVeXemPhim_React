@@ -1,0 +1,12 @@
+@import '../../scss/main.scss';
+
+.chiTietPhimItem{
+    position: relative;
+    margin-top: 55px;
+    .chiTietPhimItem_content{
+        justify-content: space-around;
+        .chiTietPhimItem_intro{
+            display: flex;
+        }
+    }
+}

@@ -84,14 +84,14 @@ export default function BoxCumRap() {
                 }}
 
                 className={`d-flex myBoxCumRap_item ${activeClass}`} key={index}>
-                    <img src="./img/example_cumrap.jpg" style={{ width: "60px", height: "60px" }}></img>
+                    <img src="./img/example_cumrap.jpg"></img>
                     <div className="myBoxCumRap_intro">
                         <p className="m-0">
                             <span style={{color: corlorTenHeThongRap}}>{item.tenCumRap.substr(0,numTrimTenHeThongRap)}
                             </span>
                             {item.tenCumRap.substr(numTrimTenHeThongRap)}
                         </p>
-                        <p className="m-0">{item.diaChi.length > 15 ? item.diaChi.substr(0, 35) + "..." : item.diaChi}</p>
+                        <p className="m-0">{item.diaChi.length > 45 ? item.diaChi.substr(0, 45) + "..." : item.diaChi}</p>
                     </div>
                 </div>
             )
@@ -99,7 +99,7 @@ export default function BoxCumRap() {
     }
 
     return (
-        <div className="myBoxCumRap">
+        <div id="myBoxCumRap">
             {renderDanhSachCumRap()}
         </div>
     )

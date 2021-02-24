@@ -1,5 +1,10 @@
 @import '../../scss/main.scss';
 
 .myBoxBooking{
-    margin: 50px 0;
+    margin: 100px 0;
+    
+    .container{
+         box-shadow: 0px 0px 8px 6px $color-gray-2;
+        //  border: 1px solid $color-gray-3;
+    }
 }

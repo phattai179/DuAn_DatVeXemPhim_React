@@ -1,10 +1,12 @@
 @import '../../scss/main.scss';
 
 .myHeader{
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 5;
     width: 100%;
-    opacity: 0.7;
+    opacity: 1;
     .myHeader_movie{
         .header_signin_collapse{
             display: none;

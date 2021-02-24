@@ -60,11 +60,8 @@ export default function BoxHeThongRap() {
                 default:
                     break;
             }
-
-
-
             return (
-                <div key={index} className="text-center myBoxHeThongRap_content" >
+                <div key={index} className="text-center myBoxHeThongRap_content col-4 col-md-2 col-lg-12 p-0">
                     {/* khi onlick gọi dispatch Api lấy ds cum rap và lưu lên store */}
                     <a className={`${activeClass}`} onClick={() => {
                         dispatch(layThongTinCumRapTheoHeThongAction(item.maHeThongRap));
@@ -74,7 +71,7 @@ export default function BoxHeThongRap() {
                             number: index
                         })
                     }}>
-                        <img src={item.logo} style={{ width: "60px", height: "60px" }}></img>
+                        <img src={item.logo}></img>
                     </a>
                 </div>
             )
@@ -82,8 +79,8 @@ export default function BoxHeThongRap() {
     }
 
     return (
-        <div className="myBoxHeThongRap">
-            {renderHeThongRap()}
+        <div className="myBoxHeThongRap row m-0">
+                {renderHeThongRap()}
         </div>
     )
 }

@@ -2,35 +2,133 @@
 
 .myBoxLichChieu{
     border: 1px solid $color-gray-1;
-    .myBoxLichChieu_itemPhim{
+    padding: 5px 15px;
+    height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .myBoxLichChieu_item{
         position: relative;
-        padding: 10px;
-        img{
-            border: 1px solid $color-gray-0;
-        }
         .myBoxLichChieu_intro{
-            p:nth-child(1){
-                margin-bottom: 0;
-                margin-left: 15px;
-                color: $color-black-1;
-                font-size: $fs-2;
-                font-weight: 700;
-            };
-            p:nth-child(2){
-                margin-bottom: 0;
-                margin-left: 15px;
-                color: $color-gray-0;
-                font-size: $fs-1;
+            position: relative;
+            padding: 15px 0;
+            img{
+                border: 2px solid $color-gray-1;
             }
+            .myBoxLichChieu_info{
+                p:nth-child(1){
+                    margin-bottom: 0;
+                    margin-left: 15px;
+                    color: $color-black-1;
+                    font-size: $fs-2;
+                    font-weight: 700;
+                };
+                p:nth-child(2){
+                    margin-bottom: 0;
+                    margin-left: 15px;
+                    color: $color-gray-0;
+                    font-size: $fs-1;
+                }
+                
+            }
+            .myBoxLichChieu_icon{
+                position: absolute;
+                right: 20px;
+                i{
+                    font-size: $fs-4;
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        .myBoxLichChieu_lichChieu{
+            div{
+                margin-bottom: 15px;
+                button{
+                    line-height: 1;
+                    padding: 8px;
+                    width: 90%;
+                    background-color: $color-gray-1;
+                    border: 1px solid $color-black-1;
+                    border-radius: 5px;
+                    .myBoxLichChieu_gio{
+                        color: $color-green-0;
+                        font-size: $fs-4 - 4;
+                        margin-right: 2px;
+                    }
+                    .myBoxLichChieu_ngay{
+                        color: $color-gray-3;
+                        font-size: $fs-0;
+                    }
+                    &:hover{
+                        .myBoxLichChieu_gio{
+                            color: $color-orange-0;
+                        }
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+    
             
         }
-        .myBoxLichChieu_icon{
+        &::after{
+            content: "";
             position: absolute;
-            right: 20px;
-            i{
-                font-size: $fs-4;
-                cursor: pointer;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $color-gray-2;
+        }
+    }
+    
+    .notData_LichChieu{
+        font-size: $fs-2;
+        color: $color-black-1;
+        text-align: center;
+        text-shadow:3px 3px 5px $color-gray-3;
+        padding: 30px;
+    }
+}
+
+.myBoxLichChieu{
+    @media screen and (max-width: 992px) {
+        .myBoxLichChieu_item{
+            .myBoxLichChieu_lichChieu{
+                div{
+                    button{
+                        width: 75%;
+                    }
+                }
             }
         }
     }
+    @media screen and (max-width: 768px) {
+        .myBoxLichChieu_item{
+            .myBoxLichChieu_lichChieu{
+                div{
+                    text-align: center;
+                    button{
+                        width: 40%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.myBoxLichChieu::-webkit-scrollbar {
+    width: 10px;
+}
+
+.myBoxLichChieu::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+
+.myBoxLichChieu::-webkit-scrollbar-thumb{
+    background: linear-gradient(to top, $color-gray-0, $color-gray-3);
+    border-radius: 5px;
 }

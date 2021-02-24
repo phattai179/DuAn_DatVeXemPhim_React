@@ -6,6 +6,7 @@ import '../../../node_modules/react-modal-video/scss/modal-video.scss';
 
 import PopupVideo from '../PopupVideo/PopupVideo';
 import { OPEN_MODAL_VIDEO } from '../../Redux/type/TypePopupModal';
+import { NavLink } from 'react-router-dom';
 
 
 export default function PhimItem(props) {
@@ -19,10 +20,10 @@ export default function PhimItem(props) {
     // console.log('trailerPhim', trailerPhimItem)
 
     return (
-        <div className="myListFilm_item" >
+        <NavLink to={`/chitietphim/${itemPhim.maPhim}`} className="myListFilm_item" >
             <div className="card m-3">
                 <div className="card_header" >
-                    <img className="card-img-top" src={itemPhim.hinhAnh} style={{ height: "330px" }} />
+                    <img className="card-img-top" src={itemPhim.hinhAnh} style={{ height: "330px", width: "100%" }} />
                     <div className="myListFilm_item_overlay" >
                         <button className="btn-play" onClick={() => {
                             dispatch({
@@ -58,7 +59,6 @@ export default function PhimItem(props) {
 
             </div>
 
-        </div>
-
+        </NavLink>
     )
 }

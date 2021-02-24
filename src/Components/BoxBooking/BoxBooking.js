@@ -9,13 +9,13 @@ export default function BoxBooking() {
         <div className="myBoxBooking">
             <div className="container">
                 <div className="row">
-                    <div className="col-1 p-0" >
+                    <div className="col-12 col-md-12 col-lg-1 p-0" >
                         <BoxHeThongRap></BoxHeThongRap>
                     </div>
-                    <div className="col-4 p-0" >
+                    <div className="col-12 col-md-5 col-lg-4 p-0" >
                         <BoxCumRap></BoxCumRap>
                     </div>
-                    <div className="col-7 p-0" >
+                    <div className="col-12 col-md-7 col-lg-7 p-0" >
                         <BoxLichChieuCumRap></BoxLichChieuCumRap>
                     </div>
                 </div>
