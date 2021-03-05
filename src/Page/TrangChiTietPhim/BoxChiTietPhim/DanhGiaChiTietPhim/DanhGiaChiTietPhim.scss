@@ -1,0 +1,162 @@
+@import "../../../../scss/main.scss";
+
+.commentChiTietPhim {
+    width: 50%;
+    margin: 0 auto;
+    .commentChiTietPhim_input {
+        padding: 10px 20px;
+        background-color: white;
+        align-items: center;
+        border-radius: 5px;
+        cursor: pointer;
+        img {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+        }
+        span {
+            margin-left: 5px;
+            width: 100%;
+            color: rgba(0, 0, 0, 0.582);
+        }
+        div {
+            margin-bottom: 0;
+            width: 100%;
+            text-align: right;
+            i {
+                color: $color-orange-0;
+                margin: 1px;
+                opacity: 0.6;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .commentChiTietPhim_list {
+        .commentChiTietPhim_item {
+            background-color: white;
+            align-items: center;
+            border-radius: 5px;
+            .commentChiTietPhim_itemHeader {
+                @extend .commentChiTietPhim_input;
+                display: flex;
+                justify-content: space-around;
+                span {
+                    color: $color-black-0;
+                    font-weight: 500;
+                    font-size: $fs-1;
+                }
+                .commentChiTietPhim_danhGia {
+                    align-self: center;
+                    width: fit-content;
+                    line-height: 1;
+                    h4 {
+                        text-align: center;
+                        color: $color-green-0;
+                        margin-bottom: 0;
+                        line-height: 1;
+                        text-align: center;
+                    }
+                    p {
+                        white-space: nowrap;
+                        i {
+                            font-size: 15px;
+                            line-height: 1;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .commentChiTietPhim_content {
+                position: relative;
+                padding: 0px 20px;
+                padding-bottom: 25px;
+                margin: 0;
+                font-size: $fs-1;
+                color: $color-gray-7;
+                font-weight: 400;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    height: 2px;
+                    width: 95%;
+                    background-color: $color-gray-2;
+                }
+            }
+
+            .commentChiTietPhim_footer {
+                padding: 10px 20px;
+                i {
+                    color: $color-gray-3;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+                span {
+                    margin-left: 10px;
+                    color: $color-gray-8;
+                }
+            }
+        }
+    }
+}
+
+.commentChiTietPhim {
+    @media screen and (max-width: 992px) {
+        width: 80%;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        .commentChiTietPhim_input {
+            img {
+                width: 35px;
+                height: 35px;
+            }
+            span {
+                font-size: $fs-0;
+                @media screen and (max-width: 450px) {
+                    font-size: 11px;
+                }
+            }
+            div i {
+                font-size: $fs-1;
+                @media screen and (max-width: 450px) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .commentChiTietPhim_list {
+            .commentChiTietPhim_item {
+                .commentChiTietPhim_itemHeader {
+                    .commentChiTietPhim_danhGia {
+                        h4 {
+                            font-size: $fs-2 - 2;
+                        }
+                        p {
+                            i {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+                .commentChiTietPhim_footer {
+                    i {
+                        color: $color-gray-3;
+                        font-size: 15px;
+                        cursor: pointer;
+                    }
+                    span {
+                        margin-left: 10px;
+                        color: $color-gray-8;
+                        font-size: $fs-0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -10,11 +10,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/chitietphim/:maPhim" render={(propsRoute) => {
+        <Route exact path="/chitietphim/:maPhim" render={(propsRoute) => {
           return <div>
             <Header></Header>
             <ChiTietPhim {...propsRoute}></ChiTietPhim>
-            <BoxBooking></BoxBooking>
             <Footer></Footer>
           </div>
         }}></Route>

@@ -10,17 +10,17 @@ export default function BoxLichChieuCumRap(props) {
     // Lấy thông tin lịch chiếu cụm rạp từ store
     let thongTinLichChieuCumRap = useSelector(state => state.QuanLyPhimReducer.thongTinLichChieuCumRap)
 
-    console.log('thongTinLichChieu', thongTinLichChieuCumRap)
+    // console.log('thongTinLichChieu', thongTinLichChieuCumRap)
 
     // Lấy mã cụm rạp từ store khi người dùng click vào cụm rap
     let maCumRapStore = useSelector(state => state.QuanLyPhimReducer.maCumRap)
-    console.log('maCumRap', maCumRapStore)
+    // console.log('maCumRap', maCumRapStore)
 
 
     // Lấy mã hệ thống rạp từ store
     let maHeThongRap = useSelector(state => state.QuanLyPhimReducer.maHeThongRap)
 
-    console.log('maHeThongRap', maHeThongRap)
+    // console.log('maHeThongRap', maHeThongRap)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function BoxLichChieuCumRap(props) {
                 let cumRapHienThi = item?.lstCumRap?.find(cumRapHienThi => cumRapHienThi.maCumRap === maCumRapStore)
                 //maCumRapStore === cumRap.maCumRap
                 if (cumRapHienThi) {
-                    console.log('cumRapHienThi', cumRapHienThi)
+                    // console.log('cumRapHienThi', cumRapHienThi)
                     return <Fragment key={index}>
                         {cumRapHienThi?.danhSachPhim?.map((phim, index) => {
                             return (

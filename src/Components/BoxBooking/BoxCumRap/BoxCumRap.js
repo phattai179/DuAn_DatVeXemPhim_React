@@ -84,7 +84,7 @@ export default function BoxCumRap() {
                 }}
 
                 className={`d-flex myBoxCumRap_item ${activeClass}`} key={index}>
-                    <img src="./img/example_cumrap.jpg"></img>
+                    <img src="/img/example_cumrap.jpg"></img>
                     <div className="myBoxCumRap_intro">
                         <p className="m-0">
                             <span style={{color: corlorTenHeThongRap}}>{item.tenCumRap.substr(0,numTrimTenHeThongRap)}

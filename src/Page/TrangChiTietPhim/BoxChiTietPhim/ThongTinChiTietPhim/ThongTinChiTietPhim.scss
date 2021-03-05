@@ -1,0 +1,35 @@
+@import "../../../../scss/main.scss";
+
+.thongTinPhim {
+    .thongTinPhim_list {
+        .thongTinPhim_detail {
+            display: flex;
+            align-items: center;
+            p {
+                align-self: center;
+                width: 45%;
+                color: white;
+                font-weight: 400;
+                font-size: $fs-0;
+                letter-spacing: 1px;
+                margin-right: 15px;
+            }
+            p:nth-child(2) {
+                width: 55%;
+                color: $color-gray-3;
+            }
+        }
+    }
+    .thongTinPhim_content {
+        margin-top: -5px;
+        p {
+            color: white;
+            font-weight: 400;
+            font-size: $fs-0;
+            letter-spacing: 1px;
+        }
+        p:nth-child(2) {
+            color: $color-gray-3;
+        }
+    }
+}

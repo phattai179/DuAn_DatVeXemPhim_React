@@ -4,18 +4,18 @@ import './Footer.scss'
 export default function Footer() {
 
     let mangPartner = [
-        { src: "./img/partner1.png" },
-        { src: "./img/partner2.png" },
-        { src: "./img/partner3.png" },
-        { src: "./img/partner4.png" },
-        { src: "./img/partner5.png" },
-        { src: "./img/partner6.png" },
-        { src: "./img/partner7.png" },
-        { src: "./img/partner8.jpg" },
-        { src: "./img/partner9.jpg" },
-        { src: "./img/partner10.png" },
-        { src: "./img/partner11.png" },
-        { src: "./img/partner12.png" },
+        { src: "/img/partner1.png" },
+        { src: "/img/partner2.png" },
+        { src: "/img/partner3.png" },
+        { src: "/img/partner4.png" },
+        { src: "/img/partner5.png" },
+        { src: "/img/partner6.png" },
+        { src: "/img/partner7.png" },
+        { src: "/img/partner8.jpg" },
+        { src: "/img/partner9.jpg" },
+        { src: "/img/partner10.png" },
+        { src: "/img/partner11.png" },
+        { src: "/img/partner12.png" },
 
 
     ]
@@ -34,7 +34,7 @@ export default function Footer() {
                 <div className="row" >
                     <div className="col-12 col-md-8 col-lg-6">
                         <div className="myFooter_company text-center text-md-left d-block d-md-flex" >
-                            <img src="./img/Footer-logoCompany.jpg"></img>
+                            <img src="/img/Footer-logoCompany.jpg"></img>
                             <div className="myFooter_company_content">
                                 <h4 className="myFooter_title">TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN CYBERSOFT</h4>
                                 <p>Địa chỉ: 82 Ung Văn Khiêm, Quận Bình Thạnh,TP.Hồ Chí Minh</p>

@@ -1,0 +1,82 @@
+@import "../../scss/main.scss";
+
+.myModal {
+    #modalComment {
+        .modal-dialog {
+            min-width: 60%;
+            .modal-content {
+                .modal-header {
+                    position: relative;
+                    justify-content: center;
+                    width: 100%;
+                    border: none;
+                    .modalComment_rate {
+                        position: relative;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 100%;
+                        h3{
+                            color: $color-green-0;
+                            font-size: $fs-5;
+                        }
+                        .modalComment_rating {
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: row-reverse;
+                            input {
+                                display: none;
+                                &:checked {
+                                    ~ label {
+                                        color: $color-orange-0;
+                                    }
+                                }
+                            }
+                            input:not(:checked) + label:hover,
+                            input:not(:checked) + label:hover ~ label {
+                                color: $color-orange-0;
+                            }
+                            label {
+                                i {
+                                    font-size: 30px;
+                                }
+                            }
+                            label.half {
+                                width: 25px;
+                                margin-right: -33px;
+                                overflow: hidden;
+                            }
+                        }
+
+                        // .modalComment_rating:not(:checked) > label:hover,
+                        // .modalComment_rating:not(:checked) > label:hover ~ label {
+                        //     color: $color-orange-0;
+                        // }
+                    }
+                }
+                .modal-body {
+                    padding-top: 0;
+                    textarea {
+                        &:focus {
+                            border-color: $color-orange-0;
+                            box-shadow: 0 0 0 0.1rem rgba(251, 66, 38, 0.479);
+                        }
+                    }
+                }
+                .modal-footer {
+                    padding-top: 5px;
+                    border: none;
+                    button {
+                        padding: 5px 20px;
+                        background: linear-gradient(to right, $color-orange-0, $color-orange-1);
+                        color: white;
+                        border: none;
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,108 @@
+@import "../../scss/main.scss";
+
+#myDropdown {
+    position: relative;
+    top: -50px;
+    width: 95%;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 8px 6px $color-gray-2;
+    padding: 15px 0px;
+    // height: auto;
+
+    .myDropdownPhim {
+        position: relative;
+        border-right: 1px solid $color-gray-2;
+        button{
+            text-align: left;
+            width: 100%;
+            position: relative;
+            font-size: $fs-0;
+            &:focus{
+                box-shadow: none;
+            }
+            &::after{
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        div {
+            position: absolute;
+            top: 100% !important;
+            bottom: 0;
+            left: 0;
+            height: 350px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transform: none !important;
+            p {
+                margin-bottom: 0;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .myDropdownCumRap {
+        @extend .myDropdownPhim;
+        button{
+            padding-left: 0;
+        }
+        div{
+            height: 140px
+        }
+    }
+
+    .myDropdownNgayChieu {
+        @extend .myDropdownCumRap;
+        div{
+            height: 140px;
+        }
+    }
+
+    .myDropdownLichChieu{
+        @extend .myDropdownCumRap;
+        div{
+            height: 140px;
+        }
+    }
+
+    .muaVe{
+        line-height: 1;
+        text-align: center;
+        button{
+            color: white;
+            font-weight: 600;
+            background: linear-gradient(to right, $color-orange-0, $color-orange-1);
+            font-size: $fs-0;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 15px;
+            
+        }
+    }
+}
+
+.dropdownShowPhim::-webkit-scrollbar,
+.dropdownShowCumRap::-webkit-scrollbar,
+.dropdownShowNgayChieu::-webkit-scrollbar,
+.dropdownShowLichChieu::-webkit-scrollbar {
+    width: 5px;
+}
+
+.dropdownShowPhim::-webkit-scrollbar-track,
+.dropdownShowCumRap::-webkit-scrollbar-track,
+.dropdownShowNgayChieu::-webkit-scrollbar-track,
+.dropdownShowLichChieu::-webkit-scrollbar-track {
+    border-radius: 2.5px;
+    background-color: white;
+}
+
+.dropdownShowPhim::-webkit-scrollbar-thumb,
+.dropdownShowCumRap::-webkit-scrollbar-thumb,
+.dropdownShowNgayChieu::-webkit-scrollbar-thumb,
+.dropdownShowLichChieu::-webkit-scrollbar-thumb {
+    background: linear-gradient(to top, $color-gray-0, $color-gray-3);
+    border-radius: 2.5px;
+}

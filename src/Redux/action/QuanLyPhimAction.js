@@ -1,61 +1,61 @@
 import Axios from 'axios'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 import { DOMAIN, STATUS_CODE } from '../../utils/setting'
-import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP } from '../type/TypeQuanLyPhim'
+import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP } from '../type/TypeQuanLyPhim'
 
-export const layDanhSachPhimAction =  () => {
+export const layDanhSachPhimAction = () => {
 
     return async (dispatch) => {
-        try{
+        try {
             let result = await Axios({
-                url : `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03`,
+                url: `${DOMAIN}/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03`,
                 method: "GET"
             })
-            
+
             // console.log('result', result)
 
             dispatch({
                 type: LAY_DANH_SACH_PHIM,
                 dataFilm: result.data
             })
-    
-        }catch(err) {
+
+        } catch (err) {
             console.log(err)
             console.log(err.response?.data)
         }
     }
 
-    
+
 }
 
 export const layThongTinHeThongRapAction = () => {
     return async (dispatch) => {
-        try{
+        try {
             let result = await Axios({
-                url : `${DOMAIN}/api/QuanLyRap/LayThongTinHeThongRap`,
+                url: `${DOMAIN}/api/QuanLyRap/LayThongTinHeThongRap`,
                 method: "GET"
             })
-    
+
             // console.log('result', result)
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 dispatch({
                     type: LAY_THONG_TIN_HE_THONG_RAP,
                     mangHeThongRap: result.data
                 })
             }
-        }catch(err){
+        } catch (err) {
             console.log(err)
             console.log(err.response.data)
         }
-        
+
     }
 }
 
 export const layThongTinCumRapTheoHeThongAction = (maHeThongRap) => {
     return async (dispatch) => {
-        try{
+        try {
             let result = await Axios({
-                url : `${DOMAIN}/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`,
+                url: `${DOMAIN}/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`,
                 method: "GET"
             })
 
@@ -73,13 +73,13 @@ export const layThongTinCumRapTheoHeThongAction = (maHeThongRap) => {
             })
 
             // console.log('result2', result)
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 dispatch({
                     type: LAY_DS_CUM_RAP_THEO_HE_THONG,
                     dataCumRap: result.data
                 })
             }
-        }catch(err){
+        } catch (err) {
             console.log(err)
             console.log(err.response.data)
         }
@@ -88,14 +88,14 @@ export const layThongTinCumRapTheoHeThongAction = (maHeThongRap) => {
 
 export const layThongTinLichChieuTheoCumRapAction = (maHeThongRap, maCumRap) => {
     return async (dispatch) => {
-        try{
+        try {
             let result = await Axios({
                 url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP03`,
                 method: "GET"
             })
 
             // console.log('result', result)
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 dispatch({
                     type: LAY_THONG_TIN_LICH_CHIEU_THEO_RAP,
                     data: result.data
@@ -107,9 +107,39 @@ export const layThongTinLichChieuTheoCumRapAction = (maHeThongRap, maCumRap) => 
                 dataMaCumRap: maCumRap
             })
 
-        }catch(err){
+        } catch (err) {
             console.log(err)
             console.log(err.response?.data)
         }
+    }
+}
+
+
+
+export const layThongTinLichChieuChiTietPhimAction = (maPhim) => {
+    return async (dispatch) => {
+
+        try {
+            let result = await Axios({
+                url: `${DOMAIN}/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`,
+                method: "GET"
+            })
+
+            if(result.status === STATUS_CODE.SUCCESS){
+                dispatch({
+                    type: LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM,
+                    data: result.data
+                })
+            }
+
+        } catch (err) {
+            console.log(err)
+            console.log(err.response?.data)
+        }
+
+
+
+
+
     }
 }

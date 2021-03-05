@@ -1,0 +1,43 @@
+@import '../../../scss/main.scss';
+
+.boxChiTietPhim{
+    position: relative;
+    width: 100%;
+    z-index: 15;
+    padding-top: 15px;
+    padding-bottom: 50px;
+    background-color: #0a2029;
+    .boxChiTietPhim_display{
+        display: flex;
+        justify-content: center;
+        span{
+            margin: 0 12px;
+            cursor: pointer;
+            font-size: $fs-2;
+            color: #fff;
+            font-weight: 500;
+            &:hover{
+                font-size: $fs-2 + 2;
+            }
+        }
+        .active{
+            @extend span;
+            color: $color-orange-0;
+            font-size: $fs-2 + 2;
+
+        }
+    }
+}
+
+.boxChiTietPhim{
+    @media screen and (max-width: 768px) {
+        .boxChiTietPhim_display{
+            span{
+                font-size: $fs-1;
+                &:hover{
+                    font-size: $fs-1 + 2;
+                }
+            }
+        }
+    }
+}
