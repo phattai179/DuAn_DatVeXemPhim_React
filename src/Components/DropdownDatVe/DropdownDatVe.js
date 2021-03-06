@@ -40,6 +40,10 @@ export default function DropdownDatVe() {
                         ...phim,
                         maPhim: itemPhim.maPhim,
                         tenPhim: itemPhim.tenPhim,
+                        cumRap: "Rạp", 
+                        ngayXem: "Ngày xem",
+                        lichChieu: "Lịch chiếu",
+                        maLichChieu: 0
                     })
                 }} className="dropdown-item" key={index}>{itemPhim.tenPhim}</p>
             )
@@ -52,7 +56,10 @@ export default function DropdownDatVe() {
                 return <p onClick={() => {
                     setPhim({
                         ...phim,
-                        cumRap: itemCumRap.tenCumRap
+                        cumRap: itemCumRap.tenCumRap,
+                        ngayXem: "Ngày xem",
+                        lichChieu: "Lịch chiếu",
+                        maLichChieu: 0,
                     })
                 }} key={index} className="dropdown-item">
                     {itemCumRap.tenCumRap}
@@ -72,13 +79,16 @@ export default function DropdownDatVe() {
                         // console.log('ngayChieuGioChieu', lichChieu.ngayChieuGioChieu)
                         if ((ngayChieuDefault !== moment(lichChieu.ngayChieuGioChieu).format("DD-MM"))) {
                             ngayChieuDefault = moment(lichChieu.ngayChieuGioChieu).format("DD-MM")
+                            // console.log('ngayChieuDefault', ngayChieuDefault)
                             return <p onClick={() => {
                                 setPhim({
                                     ...phim,
-                                    ngayXem: ngayChieuDefault
+                                    ngayXem: moment(lichChieu.ngayChieuGioChieu).format("DD-MM"),
+                                    lichChieu: "Lịch chiếu",
+                                    maLichChieu: 0
                                 })
                             }} key={index} className="dropdown-item">
-                                {ngayChieuDefault}
+                                {moment(lichChieu.ngayChieuGioChieu).format("DD-MM")}
                             </p>
                         } else {
                             return ""

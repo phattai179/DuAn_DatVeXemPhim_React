@@ -1,11 +1,13 @@
 @import '../../scss/main.scss';
 
 .myListFilm{
+    margin-top: -20px;
     .myListFilm_title{
         color: $color-black-0;
         font-size: $fs-4;
         outline: none;
         margin: 10px;
+        margin-bottom: 20px;
         border: none;
         background-color: transparent;
         &:focus{

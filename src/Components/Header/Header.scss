@@ -4,7 +4,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 7;
+    z-index: 80;
     width: 100%;
     opacity: 1;
     .myHeader_movie{
@@ -29,7 +29,9 @@
     .myHeader_user{
         display: flex;
         .nav-item{
+            white-space: nowrap;
             .nav-link{
+                white-space: nowrap;
                 color: $color-black-0;
                 font-size: $fs-0;
             }

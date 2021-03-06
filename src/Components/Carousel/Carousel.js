@@ -120,10 +120,9 @@ export default function Carousel(props) {
                     <span className="sr-only">Next</span>
                 </a>
             </div>
+            <div className="myCarouselOverlay">
 
-
-
-
+            </div>
 
         </div>
     )

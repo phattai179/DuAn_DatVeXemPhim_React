@@ -20,7 +20,7 @@ export default function PhimItem(props) {
     // console.log('trailerPhim', trailerPhimItem)
 
     return (
-        <NavLink to={`/chitietphim/${itemPhim.maPhim}`} className="myListFilm_item" >
+        <div  className="myListFilm_item" >
             <div className="card m-3">
                 <div className="card_header" >
                     <img className="card-img-top" src={itemPhim.hinhAnh} style={{ height: "330px", width: "100%" }} />
@@ -53,12 +53,12 @@ export default function PhimItem(props) {
                         <i className="fa fa-star"></i>
                     </span>
                 </div>
-                <div className="card-button" >
-                    <button>Mua Vé</button>
-                </div>
+                <NavLink to={`/chitietphim/${itemPhim.maPhim}`} className="card-button" >
+                    <button >Mua Vé</button>
+                </NavLink>
 
             </div>
 
-        </NavLink>
+        </div>
     )
 }

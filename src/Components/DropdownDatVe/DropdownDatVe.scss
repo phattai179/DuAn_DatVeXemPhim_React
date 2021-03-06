@@ -2,26 +2,28 @@
 
 #myDropdown {
     position: relative;
-    top: -50px;
+    top: -55px;
     width: 95%;
     margin-top: 20px;
     background-color: white;
-    box-shadow: 0px 0px 8px 6px $color-gray-2;
+    box-shadow: 0px 0px 4px 5px rgba(128, 128, 128, 0.425);
     padding: 15px 0px;
+    border-radius: 5px;
+
     // height: auto;
 
     .myDropdownPhim {
         position: relative;
-        border-right: 1px solid $color-gray-2;
-        button{
+        border-right: 1.5px solid $color-gray-2;
+        button {
             text-align: left;
             width: 100%;
             position: relative;
-            font-size: $fs-0;
-            &:focus{
+            font-size: $fs-1;
+            &:focus {
                 box-shadow: none;
             }
-            &::after{
+            &::after {
                 position: absolute;
                 right: 5px;
                 top: 50%;
@@ -46,32 +48,32 @@
 
     .myDropdownCumRap {
         @extend .myDropdownPhim;
-        button{
+        button {
             padding-left: 0;
         }
-        div{
-            height: 140px
+        div {
+            height: 140px;
         }
     }
 
     .myDropdownNgayChieu {
         @extend .myDropdownCumRap;
-        div{
+        div {
             height: 140px;
         }
     }
 
-    .myDropdownLichChieu{
+    .myDropdownLichChieu {
         @extend .myDropdownCumRap;
-        div{
+        div {
             height: 140px;
         }
     }
 
-    .muaVe{
+    .muaVe {
         line-height: 1;
         text-align: center;
-        button{
+        button {
             color: white;
             font-weight: 600;
             background: linear-gradient(to right, $color-orange-0, $color-orange-1);
@@ -79,7 +81,6 @@
             border: none;
             border-radius: 5px;
             padding: 12px 15px;
-            
         }
     }
 }
