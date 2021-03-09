@@ -4,6 +4,7 @@ import moment from 'moment'
 import './LichChieuChiTietPhim.scss'
 import { SET_TEN_HE_THONG_RAP } from '../../../../Redux/type/TypeQuanLyPhim'
 import { hienThiMauCumRapAction } from '../../../../Redux/action/QuanLyHienThiLogicAction'
+import { NavLink } from 'react-router-dom'
 
 export default function LichChieuChiTietPhim(props) {
 
@@ -137,7 +138,7 @@ export default function LichChieuChiTietPhim(props) {
                 let indexStatusNgayChieu = 0;
                 let ArrLichChieuTheoNgay = cumRap?.lichChieuPhim.filter(itemCumRap => moment(itemCumRap.ngayChieuGioChieu).format("DD-MM") === ngayChieuHienThi.ngayChieu)
 
-                // console.log('arrLichChieuTheoNgay', ArrLichChieuTheoNgay)
+                console.log('arrLichChieuTheoNgay', ArrLichChieuTheoNgay)
 
                 let objectCumRap = hienThiMauCumRapAction(heThongRap.maHeThongRap)
                 // console.log('obCumRap', objectCumRap)
@@ -155,14 +156,15 @@ export default function LichChieuChiTietPhim(props) {
                                 <span>{cumRap.tenCumRap.substr(objectCumRap.numTrimHeThongRap)}</span>
                                 <i className="fa fa-angle-down"></i>
                             </p>
-
                         </div>
                         {/* Render lịch chiếu */}
                         <div className="row lichChieu_item collapse" id={`lichChieu_item${index}`}>
                             <p className="col-12 mb-0 font-weight-bold">2D Digital</p>
                             {ArrLichChieuTheoNgay.map((lichChieu, index) => {
                                 return <div key={index} className="col-4 col-md-3 lichChieu_detail">
-                                    <button>{moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}</button>
+
+                                    <NavLink to = {`/datve/${lichChieu.maLichChieu}`} className="btn">{moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}</NavLink>
+
                                 </div>
                             })}
                         </div>
@@ -198,6 +200,10 @@ export default function LichChieuChiTietPhim(props) {
                             setIndexActive({ ...indexActive, activeHeThongRap: index })
                             setMaHeThongRapHienThi({
                                 maHeThongRap: heThongRap.maHeThongRap
+                            })
+                            dispatch({
+                                type: SET_TEN_HE_THONG_RAP,
+                                dataMaHeThongRap: heThongRap.maHeThongRap
                             })
                         }} key={index} className={`d-flex heThongRap_item ${active}`}>
                             <img src={heThongRap?.logo}></img>

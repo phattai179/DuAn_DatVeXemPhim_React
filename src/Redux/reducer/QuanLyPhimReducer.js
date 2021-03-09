@@ -1,4 +1,4 @@
-import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP } from "../type/TypeQuanLyPhim";
+import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, LAY_THONG_TIN_PHONG_VE, SET_TEN_HE_THONG_RAP } from "../type/TypeQuanLyPhim";
 
 const stateDefault = {
     mangPhim : [],
@@ -12,7 +12,10 @@ const stateDefault = {
     maCumRap: "bhd-star-cineplex-3-2",
 
     // Xử lý phần trangChiTietPhim
-    thongTinLichChieuChiTietPhim : {}
+    thongTinLichChieuChiTietPhim : {},
+
+    // Xử lý đặt vé
+    phongVe : {}
 
 }
 
@@ -59,6 +62,12 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
         case LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM: {
             state.thongTinLichChieuChiTietPhim = action.data
         }
+
+        // Xử lý logic đặt vé
+        case LAY_THONG_TIN_PHONG_VE : {
+            return {...state, phongVe: action.data}
+        }
+
         default:
             return {...state}
     }

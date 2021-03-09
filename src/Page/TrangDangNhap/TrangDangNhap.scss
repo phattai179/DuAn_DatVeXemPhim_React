@@ -1,0 +1,34 @@
+@import '../../scss/main.scss';
+@import '../TrangDangKy/TrangDangKy.scss';
+
+.dangNhap{
+    @extend .dangKy;
+    .dangNhap_content{
+        @extend .dangKy_content;
+        .group{
+            .text_error{
+                text-align: left;
+                font-size: 13px;
+                color: red;
+            }
+        }
+        // group
+        .dangNhap_other{
+            font-size: $fs-0;
+            text-align: center;
+            span{
+                color: #5264ae;
+                cursor: pointer;
+                font-weight: 600;
+            }
+            
+        }
+        button{
+            border: none;
+            background-color: #5264ae;
+            color: white;
+            font-weight: 600;
+        }
+    }
+
+}

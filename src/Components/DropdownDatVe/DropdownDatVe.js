@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { layThongTinLichChieuChiTietPhimAction } from '../../Redux/action/QuanLyPhimAction'
 import moment from 'moment'
 import './DropdownDatVe.scss'
+import { NavLink } from 'react-router-dom'
+import { SET_TEN_HE_THONG_RAP } from '../../Redux/type/TypeQuanLyPhim'
 
 export default function DropdownDatVe() {
 
@@ -60,6 +62,10 @@ export default function DropdownDatVe() {
                         ngayXem: "Ngày xem",
                         lichChieu: "Lịch chiếu",
                         maLichChieu: 0,
+                    })
+                    dispatch({
+                        type: SET_TEN_HE_THONG_RAP,
+                        dataMaHeThongRap: heThongRap.maHeThongRap
                     })
                 }} key={index} className="dropdown-item">
                     {itemCumRap.tenCumRap}
@@ -208,9 +214,9 @@ export default function DropdownDatVe() {
 
                 {/* Btn Mua Vé */}
                 <div className="muaVe col col-xl-2 pl-0">
-                    <button className="btnMuaVe">
+                    <NavLink to={`/datve/${phim.maLichChieu}`} className="btnMuaVe btn">
                         MUA VÉ NGAY
-                </button>
+                </NavLink>
                 </div>
 
             </div>

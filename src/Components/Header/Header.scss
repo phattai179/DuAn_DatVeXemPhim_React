@@ -30,6 +30,67 @@
         display: flex;
         .nav-item{
             white-space: nowrap;
+            .myHeader_content{
+                position: relative;
+                margin-right: 40px;
+                .myHeader_dangNhap{
+                    display: flex;
+                    align-items: center;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+    
+                .myHeader_dangNhapDetail{
+                    position: absolute;
+                    padding: 10px;
+                    bottom: -80px;
+                    left: -40px;
+                    background-color: $color-gray-3;
+                    border-radius: 5px;
+                    display: none;
+                    visibility: hidden;
+                    p{
+                        cursor: pointer;
+                        font-size: $fs-0;
+                        color: white;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                        &:hover{
+                            color: $color-blue-2;
+                        }
+                    }
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        top: -13px;
+                        left: 46px;
+                        width: 0px;
+                        height: 0px;
+                        border-left: 8px solid transparent;
+                        border-right: 8px solid transparent;
+                        border-bottom: 16px solid $color-gray-3;
+                    }
+                }
+                &:hover{
+                    .myHeader_dangNhapDetail{
+                        display: block;
+                        visibility: visible;
+                    }
+                }
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 50%;
+                    position: absolute;
+                    left: 0;
+                    bottom: -30;
+                    background-color: transparent;
+                }
+            }
+            
+
             .nav-link{
                 white-space: nowrap;
                 color: $color-black-0;

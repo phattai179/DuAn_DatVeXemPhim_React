@@ -4,6 +4,7 @@ import { layThongTinLichChieuTheoCumRapAction } from '../../../Redux/action/Quan
 import { LAY_MA_CUM_RAP } from '../../../Redux/type/TypeQuanLyPhim'
 import './BoxLichChieuCumRap.scss'
 import moment from 'moment'
+import { NavLink } from 'react-router-dom'
 
 export default function BoxLichChieuCumRap(props) {
 
@@ -53,14 +54,14 @@ export default function BoxLichChieuCumRap(props) {
                                 <div className="myBoxLichChieu_lichChieu row collapse" id={`showLichChieu${index}`}>
                                     {phim?.lstLichChieuTheoPhim?.map((lichChieu, index) => {
                                         return <div key={index} className="col-12 col-md-6 col-lg-4 col-xl-3">
-                                            <button>
-                                                <a className="myBoxLichChieu_gio">
+                                            <NavLink className="btn" to={`datve/${lichChieu.maLichChieu}`}>
+                                                <span className="myBoxLichChieu_gio">
                                                     {moment(lichChieu.ngayChieuGioChieu).format('hh:mm')}
-                                                </a>
+                                                </span>
                                                 <span className="myBoxLichChieu_ngay">
                                                     ~{moment(lichChieu.ngayChieuGioChieu).format('DD-MM')}
                                                 </span>
-                                            </button>
+                                            </NavLink>
                                         </div>
                                     })}
                                 </div>

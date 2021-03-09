@@ -132,7 +132,7 @@ export default function TrangDangKy(props) {
                     </div>
 
                     <div className="group">
-                        <input value={user.value.matKhau} onChange={handleChangeInput} name="matKhau" required />
+                        <input value={user.value.matKhau} onChange={handleChangeInput} name="matKhau" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
                         <label>Mật khẩu</label>
@@ -140,7 +140,7 @@ export default function TrangDangKy(props) {
                     </div>
 
                     <div className="group">
-                        <input value={user.value.nhapLaiMatKhau} onChange={handleChangeInput} name="nhapLaiMatKhau" required />
+                        <input value={user.value.nhapLaiMatKhau} onChange={handleChangeInput} name="nhapLaiMatKhau" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
                         <label>Nhập lại mật khẩu</label>
@@ -148,7 +148,7 @@ export default function TrangDangKy(props) {
                     </div>
 
                     <div className="group">
-                        <input value={user.value.hoTen} onChange={handleChangeInput} name="hoTen" required />
+                        <input value={user.value.hoTen} onChange={handleChangeInput} name="hoTen" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
                         <label>Họ tên</label>
@@ -156,7 +156,7 @@ export default function TrangDangKy(props) {
                     </div>
 
                     <div className="group">
-                        <input value={user.value.email} typeinput="email" onChange={handleChangeInput} name="email" required />
+                        <input value={user.value.email} typeinput="email" onChange={handleChangeInput} onBlur={handleChangeInput} name="email" required />
                         <span className="highlight" />
                         <span className="bar" />
                         <label>Email</label>
@@ -165,7 +165,7 @@ export default function TrangDangKy(props) {
                     </div>
 
                     <div className="group">
-                        <input value={user.value.soDt} typeinput="soDt" onChange={handleChangeInput} name="soDt"  required />
+                        <input value={user.value.soDt} typeinput="soDt" onChange={handleChangeInput} onBlur={handleChangeInput} name="soDt" required />
                         <span className="highlight" />
                         <span className="bar" />
                         <label>Số điện thoại</label>

@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { useSelector } from 'react-redux'
 import { DOMAIN, STATUS_CODE } from '../../utils/setting'
-import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP } from '../type/TypeQuanLyPhim'
+import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP, LAY_THONG_TIN_PHONG_VE } from '../type/TypeQuanLyPhim'
 
 export const layDanhSachPhimAction = () => {
 
@@ -136,10 +136,29 @@ export const layThongTinLichChieuChiTietPhimAction = (maPhim) => {
             console.log(err)
             console.log(err.response?.data)
         }
+    }
+}
 
+export const layThongTinPhongVeAction = (maLichChieu) => {
+    return async (dispatch) => {
+        try{
+            let result = await Axios({
+                url: `${DOMAIN}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
+                method: "GET"
+            })
 
+            console.log('result', result)
 
+            if(result.status === STATUS_CODE.SUCCESS){
+                dispatch({
+                    type: LAY_THONG_TIN_PHONG_VE,
+                    data: result.data
+                })
+            }
 
-
+        }catch(err){
+            console.log(err)
+            console.log(err?.response?.data)
+        }
     }
 }
