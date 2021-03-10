@@ -13,11 +13,11 @@ export default function TrangDatVe(props) {
         <div className="datVe">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-8 p-0">
+                    <div className="col-8 p-0 datVe_left">
                         <HeaderDatVe className="col-12"></HeaderDatVe>
                         <DanhSachGhe maLichChieu = {maLichChieu} className="col-12"></DanhSachGhe>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 p-0 chiTietThanhToan">
                         <ChiTietThanhToan></ChiTietThanhToan>
                     </div>
                 </div>

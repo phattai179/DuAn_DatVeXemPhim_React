@@ -79,18 +79,18 @@ export default function TrangDangNhap(props) {
 
                     <div>
                         <div className="group">
-                            <input value={user.value.taiKhoan} onChange={handleChangeInput} onBlur={handleChangeInput} name="taiKhoan" required />
+                            <input className="input_form" value={user.value.taiKhoan} onChange={handleChangeInput} onBlur={handleChangeInput} name="taiKhoan" required />
                             <span className="highlight" />
                             <span className="bar" />
-                            <label>Tài khoản</label>
+                            <label className="label_form">Tài khoản</label>
                             <p className="text_error">{user.error.taiKhoan}</p>
                         </div>
 
                         <div className="group">
-                            <input value={user.value.matKhau}  onChange={handleChangeInput} onBlur={handleChangeInput} name="matKhau" required />
+                            <input className="input_form" value={user.value.matKhau}  onChange={handleChangeInput} onBlur={handleChangeInput} name="matKhau" required />
                             <span className="highlight" />
                             <span className="bar" />
-                            <label>Mật khẩu</label>
+                            <label className="label_form">Mật khẩu</label>
                             <p className="text_error">{user.error.matKhau}</p>
                         </div>
 

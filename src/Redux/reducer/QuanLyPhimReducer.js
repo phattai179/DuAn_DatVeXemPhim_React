@@ -1,4 +1,4 @@
-import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, LAY_THONG_TIN_PHONG_VE, SET_TEN_HE_THONG_RAP } from "../type/TypeQuanLyPhim";
+import { CHON_GHE, LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, LAY_THONG_TIN_PHONG_VE, SET_TEN_HE_THONG_RAP } from "../type/TypeQuanLyPhim";
 
 const stateDefault = {
     mangPhim : [],
@@ -15,7 +15,9 @@ const stateDefault = {
     thongTinLichChieuChiTietPhim : {},
 
     // Xử lý đặt vé
-    phongVe : {}
+    phongVe : {},
+    danhSachGheDangChon: [],
+    objectDatVe: {}
 
 }
 
@@ -64,8 +66,24 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
         }
 
         // Xử lý logic đặt vé
+
         case LAY_THONG_TIN_PHONG_VE : {
             return {...state, phongVe: action.data}
+        }
+
+        // Vừa chọn ghế vừa tạo 1 object đặt vé để lưu trên store
+        case CHON_GHE : {
+            let danhSachGheDangChonUpdate = [...state.danhSachGheDangChon]
+
+            let gheDangChon = state.danhSachGheDangChon.find(ghe => ghe.maGhe === action.dataGheDangChon.maGhe)
+
+            if(gheDangChon){
+                danhSachGheDangChonUpdate = danhSachGheDangChonUpdate.filter(ghe => ghe.maGhe !== gheDangChon.maGhe)
+            }else{
+                danhSachGheDangChonUpdate.push(action.dataGheDangChon)
+            }
+            
+            return {...state, danhSachGheDangChon : danhSachGheDangChonUpdate, objectDatVe: action.dataDatVe}
         }
 
         default:

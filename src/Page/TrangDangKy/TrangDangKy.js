@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { dangKyAction } from '../../Redux/action/QuanLyUserAction'
-import './TrangDangKy.scss'
+import './TrangDangKy.scss';
 
 export default function TrangDangKy(props) {
 
@@ -124,53 +124,52 @@ export default function TrangDangKy(props) {
                         <h2 className="my-3">ĐĂNG KÝ</h2>
                     </div>
                     <div className="group">
-                        <input maxLength="20" value={user.value.taiKhoan} onBlur={handleChangeInput} onChange={handleChangeInput} name="taiKhoan" required/>
+                        <input className="input_form" maxLength="20" value={user.value.taiKhoan} onBlur={handleChangeInput} onChange={handleChangeInput} name="taiKhoan" required/>
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Tài khoản</label>
+                        <label className="label_form">Tài khoản</label>
                         <p className="text-danger text_error">{user.error.taiKhoan}</p>
                     </div>
 
                     <div className="group">
-                        <input value={user.value.matKhau} onChange={handleChangeInput} name="matKhau" onBlur={handleChangeInput} required />
+                        <input className="input_form" value={user.value.matKhau} onChange={handleChangeInput} name="matKhau" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Mật khẩu</label>
+                        <label className="label_form">Mật khẩu</label>
                         <p className="text-danger text_error">{user.error.matKhau}</p>
                     </div>
 
                     <div className="group">
-                        <input value={user.value.nhapLaiMatKhau} onChange={handleChangeInput} name="nhapLaiMatKhau" onBlur={handleChangeInput} required />
+                        <input className="input_form" value={user.value.nhapLaiMatKhau} onChange={handleChangeInput} name="nhapLaiMatKhau" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Nhập lại mật khẩu</label>
+                        <label className="label_form">Nhập lại mật khẩu</label>
                         <p className="text-danger text_error">{user.error.nhapLaiMatKhau}</p>
                     </div>
 
                     <div className="group">
-                        <input value={user.value.hoTen} onChange={handleChangeInput} name="hoTen" onBlur={handleChangeInput} required />
+                        <input className="input_form" value={user.value.hoTen} onChange={handleChangeInput} name="hoTen" onBlur={handleChangeInput} required />
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Họ tên</label>
+                        <label className="label_form">Họ tên</label>
                         <p className="text-danger text_error">{user.error.hoTen}</p>
                     </div>
 
                     <div className="group">
-                        <input value={user.value.email} typeinput="email" onChange={handleChangeInput} onBlur={handleChangeInput} name="email" required />
+                        <input className="input_form" value={user.value.email} typeinput="email" onChange={handleChangeInput} onBlur={handleChangeInput} name="email" required />
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Email</label>
+                        <label className="label_form">Email</label>
                         <p className="text-danger text_error">{user.error.email}</p>
 
                     </div>
 
                     <div className="group">
-                        <input value={user.value.soDt} typeinput="soDt" onChange={handleChangeInput} onBlur={handleChangeInput} name="soDt" required />
+                        <input className="input_form" value={user.value.soDt} typeinput="soDt" onChange={handleChangeInput} onBlur={handleChangeInput} name="soDt" required />
                         <span className="highlight" />
                         <span className="bar" />
-                        <label>Số điện thoại</label>
+                        <label className="label_form">Số điện thoại</label>
                         <p className="text-danger text_error">{user.error.soDt}</p>
-
                     </div>
 
                     <button type="submit" className="btn btn-success mb-3">

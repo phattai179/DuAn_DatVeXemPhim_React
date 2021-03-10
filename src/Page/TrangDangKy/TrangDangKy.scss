@@ -44,7 +44,7 @@
     position: relative;
     margin-bottom: 30px;
 }
-input {
+.input_form {
     font-size: 15px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -53,12 +53,12 @@ input {
     border: none;
     border-bottom: 1px solid #757575;
 }
-input:focus {
+.input_form:focus {
     outline: none;
 }
 
 /* LABEL ======================================= */
-label {
+.label_form {
     color: #999;
     font-size: 15px;
     font-weight: normal;
@@ -72,8 +72,8 @@ label {
 }
 
 /* active state */
-input:focus ~ label,
-input:valid ~ label {
+.input_form:focus ~ label,
+.input_form:valid ~ label {
     top: -20px;
     font-size: 14px;
     color: #5264ae;
@@ -105,8 +105,8 @@ input:valid ~ label {
 }
 
 /* active state */
-input:focus ~ .bar:before,
-input:focus ~ .bar:after {
+.input_form:focus ~ .bar:before,
+.input_form:focus ~ .bar:after {
     width: 50%;
 }
 
@@ -122,7 +122,7 @@ input:focus ~ .bar:after {
 }
 
 /* active state */
-input:focus ~ .highlight {
+.input_form:focus ~ .highlight {
     -webkit-animation: inputHighlighter 0.3s ease;
     -moz-animation: inputHighlighter 0.3s ease;
     animation: inputHighlighter 0.3s ease;

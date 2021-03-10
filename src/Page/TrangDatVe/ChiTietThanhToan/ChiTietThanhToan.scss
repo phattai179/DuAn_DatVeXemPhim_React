@@ -1,1 +1,65 @@
-@import '../../../scss/main.scss'
+@import '../../../scss/main.scss';
+
+.booking_payment{
+    position: fixed;
+    z-index: 50;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    .total_payment{
+        font-size: $fs-6;
+        color: $color-green-0;
+        font-weight: 600;
+        padding: 15px 0;
+        margin: 0 15px;
+        margin-bottom: 0;
+        text-align: center;
+        border-bottom: 2px dotted $color-gray-4;
+    }
+    .nameFilm{
+        font-size: $fs-1 + 1;
+        color: black;
+        font-weight: 600;
+        padding: 25px 0;
+        margin: 0 15px;
+        border-bottom: 2px dotted $color-gray-4;
+    }
+    .payment_detail{
+        display: flex;
+        padding: 25px 0;
+        margin: 0 15px;
+        border-bottom: 2px dotted $color-gray-4;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            margin-bottom: 0;
+        }
+        p:nth-child(2){
+            font-weight: 600;
+        }
+    }
+    .method_payment{
+        padding: 25px 0;
+        margin: 0 15px;
+        border-bottom: 2px dotted $color-gray-4;
+        .method_detail{
+            img{
+                width: 40px;
+                height: 40px;
+                margin: 0 12px;
+            }
+        }
+    }
+    .btn-payment{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        
+    }
+
+}

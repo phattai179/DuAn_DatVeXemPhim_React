@@ -147,7 +147,7 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
                 method: "GET"
             })
 
-            console.log('result', result)
+            // console.log('result', result)
 
             if(result.status === STATUS_CODE.SUCCESS){
                 dispatch({

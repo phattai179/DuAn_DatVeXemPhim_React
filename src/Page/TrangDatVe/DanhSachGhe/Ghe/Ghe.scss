@@ -1,0 +1,50 @@
+@import '../../../../scss/main.scss';
+
+.ghe{
+    width: 32px;
+    height: 32px;
+    background-color: $color-gray-7;
+    margin: 4px;
+    border: none;
+    border-radius: 3px;
+    font-size: $fs-0;
+    line-height: 1.5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &:focus{
+        outline: none;
+    }
+    
+}
+
+.gheVip{
+    @extend .ghe;
+    background-color: $color-yellow-0;
+}
+
+.gheDangChon{
+    @extend .ghe;
+    background-color: $color-green-0;
+}
+
+.gheDaDat{
+    @extend .ghe;
+    background-color: $color-gray-6;
+    cursor: no-drop
+}
+
+.gheNote{
+    @extend .ghe;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.gheContent{
+    visibility: hidden;
+}
+
+.gheContent.activeGheDangChon{
+    visibility: visible;
+}
