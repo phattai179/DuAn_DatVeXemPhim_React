@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import './MenuCinema.scss'
+import '../ChiTietThanhToan/ChiTietThanhToan.scss'
 export default function MenuCinema(props) {
 
     let activeMenu = useSelector(state => state.QuanLyMenuThucAnReducer.activeMenu)
@@ -93,12 +94,13 @@ export default function MenuCinema(props) {
 
     return (
         <div className="menubg" style={{ backgroundColor: `${bgMenu}`, zIndex: `${indexActive}`, visibility: `${activeVisible}` }} >
-            <img onClick={() => {
+            {/* <i onClick={() => {
                 dispatch({
                     type: "XET_ACTIVE_MENU",
                     statusActive: false
                 })
-            }} className="button_close" src='/img/button_close.png'></img>
+            }} class="fa fa-window-close button_close"></i> */}
+            {/* <img  className="button_close" src='/img/button_close.png'></img> */}
 
             <div className={`menuCinema ${positionCombo}`}>
 
@@ -110,6 +112,16 @@ export default function MenuCinema(props) {
                     <h3>THỨC ĂN</h3>
                     {renderDoAn()}
                 </div>
+            </div>
+
+            <div className="btnPayment_mobile">
+                <button className="btn btn_GheDat btn_giaMenu">{tongGiaThucAn !== 0 ? `${tongGiaThucAn.toLocaleString()} vnd` : "0 vnd"}</button>
+                <button onClick={() => {
+                    dispatch({
+                        type: "XET_ACTIVE_MENU",
+                        statusActive: false
+                    })
+                }} className="btn btnDatVe_mobile">TIẾP TỤC</button>
             </div>
 
         </div>

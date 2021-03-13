@@ -16,11 +16,21 @@ export default function ChiTietThanhToan(props) {
 
     let tienThucAn = useSelector(state => state.QuanLyMenuThucAnReducer.tongGiaThucAn)
 
+    // Xử lý logic ẩn hiện ở màn hình destop
+
+    let activeChiTietThanhToanMobile = useSelector(state => state.QuanLyPhimReducer.activeChiTietThanhToanMobile)
+
+    console.log('chiTietThanhToanAc', activeChiTietThanhToanMobile)
+
+    let chiTietThanhToanMobile = activeChiTietThanhToanMobile ? "chiTietThanhToanMobile" : ""
+
+    let indexBtnPaymentMobile = activeChiTietThanhToanMobile ? "3" : "2"
 
 
     // Xứ lý logic để disabled nút thanh toán
     let disabled = danhSachGheDangChon.length === 0 ? true : false
     let typeCursor = danhSachGheDangChon.length === 0 ? "no-drop" : "pointer"
+
 
     const dispatch = useDispatch()
     // console.log('dsGheDangChon', danhSachGheDangChon)
@@ -35,7 +45,7 @@ export default function ChiTietThanhToan(props) {
     const renderSoGheDangChon = () => {
         return danhSachGheDangChon?.map((ghe, index) => {
             return <span key={index} className="ml-2 text-success">
-                {ghe.tenSoGhe}
+                {ghe.hangGhe}{ghe.soGhe}
             </span>
         })
     }
@@ -48,9 +58,11 @@ export default function ChiTietThanhToan(props) {
     // Tính tổng tiến thanh toán
     let tongTienThanhToan = tienGhe + tienThucAn
 
+
     return (
         <Fragment>
-            <div className="booking_payment">
+            {/* Màn hình desktop */}
+            <div id={chiTietThanhToanMobile}  className="booking_payment">
                 <p className="total_payment">{tongTienThanhToan.toLocaleString()} vnđ</p>
                 <p className="nameFilm">
                     {phongVe?.thongTinPhim?.tenPhim}
@@ -113,13 +125,17 @@ export default function ChiTietThanhToan(props) {
 
 
                 }} disabled={disabled} className="btn btn-payment" style={{ cursor: `${typeCursor}` }}>
-                    THANH TOÁN
+                    THANH TOÁN DESKTOP
             </button>
             </div>
 
-            <div className="btnPayment_mobile">
+            {/* Nút btnPayment ở màn hình mobule */}
+            <div className="btnPayment_mobile" style={{zIndex: `${indexBtnPaymentMobile}`}}>
                 <button className="btn btn_GheDat">
-                    GHẾ ĐANG CHỌN
+                    {danhSachGheDangChon.length !== 0 ? 
+                        renderSoGheDangChon() :
+                        "GHẾ ĐANG CHỌN"
+                    }
                 </button>
                 <button onClick={() => {
 

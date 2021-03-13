@@ -24,10 +24,11 @@ export default function TrangDatVe(props) {
                 </div>
                 {/* Hiển thị màn hình mobile */}
             </div>
+            
             <div className="datVeMobile_container">
                 <HeaderDatVe></HeaderDatVe>
-                <DanhSachGhe></DanhSachGhe>
-                <ChiTietThanhToan></ChiTietThanhToan>
+                <DanhSachGhe maLichChieu={maLichChieu} ></DanhSachGhe>
+                <ChiTietThanhToan maLichChieu={maLichChieu} ></ChiTietThanhToan>
             </div>
         </div>
     )

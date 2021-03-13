@@ -3,4 +3,7 @@
 .timeResult{
     font-size: $fs-4;
     color: $color-orange-0;
+    @media screen and (max-width: 768px) {
+        font-size: $fs-1;
+    }
 }

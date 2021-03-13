@@ -69,19 +69,19 @@ export default function Ghe(props) {
         <Fragment>
             <button disabled={disabled} onClick={() => {
     
-                let tenSoGhe = `${hangGhe}${soGhe}`
                 dispatch({
                     type: CHON_GHE,
                     dataGheDangChon: {
                         maGhe: ghe.maGhe,
                         giaVe: ghe.giaVe,
                         stt: ghe.stt,
-                        tenSoGhe
+                        hangGhe: hangGhe,
+                        soGhe: soGhe
                     },
                 })
             }} className={`ghe ${loaiGhe} ${gheDangChon} ${gheDaDat}`}>
                 <span className={`gheContent ${activeGheDangChon}`}>
-                    {hangGhe}{soGhe}
+                    {soGhe}
                 </span>
             </button>
         </Fragment>

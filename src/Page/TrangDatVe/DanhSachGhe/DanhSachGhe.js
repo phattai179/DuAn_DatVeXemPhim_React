@@ -4,6 +4,7 @@ import { hienThiMauCumRapAction } from '../../../Redux/action/QuanLyHienThiLogic
 import { layThongTinPhongVeAction } from '../../../Redux/action/QuanLyPhimAction'
 import TimeWaiting from '../TimeWaiting/TimeWaiting'
 import './DanhSachGhe.scss'
+import './../ChiTietThanhToan/ChiTietThanhToan.scss'
 import Ghe from './Ghe/Ghe'
 
 export default function DanhSachGhe(props) {
@@ -15,10 +16,22 @@ export default function DanhSachGhe(props) {
     // console.log('maLichChieu', maLichChieu)
 
     // Lấy thông tin phòng vé từ store sau khi gọi thành công api
-
     let phongVe = useSelector(state => state.QuanLyPhimReducer.phongVe)
 
-    // console.log('phongVe', phongVe)
+        // console.log('phongVe', phongVe)
+
+    // Xử lý logic hiển thị activeDanhSachGheMobile
+    let activeDanhSachGheMobile = useSelector(state => state.QuanLyPhimReducer.activeDanhSachGheMobile)
+
+    let danhSachGheMobile = activeDanhSachGheMobile ? "danhSachGheMobile" : ""
+
+    // Lấy danh sách ghế đã đặt render
+    const danhSachGheDangChon = useSelector(state => state.QuanLyPhimReducer.danhSachGheDangChon)
+
+    // Tạo biến disabled khi nhấn
+    let disabled = danhSachGheDangChon.length === 0 ? true : false
+
+    
 
     // Xử lý logic hiện thị màu tên hệ thống rạp
     let maHeThongRap = useSelector(state => state.QuanLyPhimReducer.maHeThongRap)
@@ -67,8 +80,20 @@ export default function DanhSachGhe(props) {
         })
     }
 
+    const renderDanhSachGheDangChon = () => {
+        return danhSachGheDangChon?.map((gheDangChon, index) => {
+            return (
+            <span key={index}>
+                {gheDangChon.hangGhe}{gheDangChon.soGhe}
+                {index === danhSachGheDangChon.length ? "." : ", "}
+            </span>
+                
+            )
+        })
+    }
+
     return (
-        <div className="datGhe_content">
+        <div id={danhSachGheMobile} className="datGhe_content">
             <div className="title_cumRap">
                 <img src="/img/example_cumrap.jpg"></img>
                 <div>
@@ -123,6 +148,23 @@ export default function DanhSachGhe(props) {
                     <button className="gheNote gheDaDat"></button>
                     <p>Ghế đã có người chọn</p>
                 </div> 
+            </div>
+            
+            {/* Hiển thị ở màn hình mobile */}
+            <div className="btnPayment_mobile">
+                <button className="btn btn_GheDat">
+                    {danhSachGheDangChon.length !== 0 ?
+                        renderDanhSachGheDangChon() : 
+                        "VUI LÒNG CHỌN GHẾ"
+                    }
+                </button>
+                <button onClick={() => {
+                    dispatch({
+                        type: 'ACTIVE_TRANG_DAT_VE_MOBILE',
+                        statusDanhSachGheMobile: false,
+                        statusChiTietThanhToanMobile: true
+                    })
+                }}  disabled={disabled} className="btn btnDatVe_mobile">TIẾP TỤC</button>
             </div>
 
 

@@ -52,12 +52,19 @@
             font-size: $fs-1;
         }
     }
+    #booking_stepMobile{
+        @extend .booking_step;
+        display: none;
+    }
 }
 
 .headerDatVe{
     @media screen and (max-width: 1024px) {
+        width: 70%;
         .booking_step{
             li{
+                display: flex;
+                align-items: center;
                 span{
                     font-size: $fs-1 + 1;
                 }
@@ -67,7 +74,14 @@
             }
         }
     }
-    @media screen and (max-width: 850px) {
-        width: 100%
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        .booking_step{
+            display: none;
+        }
+        #booking_stepMobile{
+            display: flex;
+
+        }
     }
 }

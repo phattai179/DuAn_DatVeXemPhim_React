@@ -2,7 +2,7 @@
 
 .booking_payment{
     position: fixed;
-    z-index: 50;
+    z-index: 15;
     top: 0;
     right: 0;
     width: 27%;
@@ -45,7 +45,7 @@
     .method_payment{
         padding: 25px 0;
         margin: 0 15px;
-        margin-bottom: 60px;
+        margin-bottom: 200px;
         border-bottom: 2px dotted $color-gray-4;
         .method_detail{
             img{
@@ -78,8 +78,22 @@
 }
 
 
+.btnPayment_mobile{
+    display: none;
+}
+
+
+// Responsive
+
+#chiTietThanhToanMobile{
+    @media screen and (max-width: 800px) {
+        z-index: 3;
+    }
+}
+
 .booking_payment{
     @media screen and (max-width: 1024px) {
+        width: 30%;
         .total_payment{
             font-size: $fs-5;
         }
@@ -90,18 +104,19 @@
             font-size: $fs-0;
         }
         .btn-payment{
+            width: 30%;
             font-size: $fs-1;
             padding-top: 15px;
             padding-bottom: 15px;
           
         }
     }
-    @media screen and (max-width: 850px) {
-        position: relative;
+    @media screen and (max-width: 800px) {
+        position: fixed;
         width: 100%;
-        margin-top: 200px;
+        // margin-top: 200px;
         margin-bottom: 80px;
-        top: 0;
+        top: 90px;
         left: 0;
         box-shadow: none;
         z-index: 2;
@@ -112,14 +127,16 @@
     }
 }
 
+
+// Responsive của nút button
 .btnPayment_mobile{
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: 800px) {
         display: flex;
         position: fixed;
         bottom: 0;
         right: 0;
         width: 100%;
-        z-index: 6;
+        z-index: 2;
         .btn{
             text-align: center;
             padding: 20px 0;

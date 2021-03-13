@@ -18,6 +18,10 @@ const stateDefault = {
     phongVe : {},
     danhSachGheDangChon: [],
 
+    // Xử lý hiển thị trang đặt vé mobile
+    activeDanhSachGheMobile: true,
+    activeChiTietThanhToanMobile: false,
+
 }
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
@@ -83,6 +87,13 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
             }
             
             return {...state, danhSachGheDangChon : danhSachGheDangChonUpdate}
+        }
+
+        // HIỂN THỊ ACTIVE TRANG ĐẶT VÉ MOBILE
+        case 'ACTIVE_TRANG_DAT_VE_MOBILE' : {
+            state.activeDanhSachGheMobile = action.statusDanhSachGheMobile
+            state.activeChiTietThanhToanMobile = action.statusChiTietThanhToanMobile
+            return {...state}
         }
 
         default:
