@@ -1,7 +1,8 @@
 import Axios from 'axios'
 import { useSelector } from 'react-redux'
-import { DOMAIN, STATUS_CODE } from '../../utils/setting'
+import { ACCESS_TOKEN, DOMAIN, STATUS_CODE } from '../../utils/setting'
 import { LAY_DANH_SACH_PHIM, LAY_DS_CUM_RAP_THEO_HE_THONG, LAY_MA_CUM_RAP, LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM, LAY_THONG_TIN_HE_THONG_RAP, LAY_THONG_TIN_LICH_CHIEU_THEO_RAP, SET_TEN_HE_THONG_RAP, LAY_THONG_TIN_PHONG_VE } from '../type/TypeQuanLyPhim'
+import { alertThanhCongAction, alertThatBaiAction } from './QuanLyModalAlert'
 
 export const layDanhSachPhimAction = () => {
 
@@ -159,6 +160,38 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
         }catch(err){
             console.log(err)
             console.log(err?.response?.data)
+        }
+    }
+}
+
+
+export const datVeAction = (objectDatVe) => {
+    return async (dispatch) => {
+
+        let  accessToken = localStorage.getItem(ACCESS_TOKEN)
+
+        console.log('ob', objectDatVe)
+        try{
+            let result = await Axios({
+                url: `${DOMAIN}/api/QuanLyDatVe/DatVe`,
+                method: 'POST',
+                data: objectDatVe,
+                headers: {
+                    'Authorization' : `Bearer ${accessToken}`
+                }
+            })
+
+            // console.log('result', result)
+            if(result.status === STATUS_CODE.SUCCESS){
+                // console.log('data', result.data)
+                alertThanhCongAction("Đặt vé")
+                dispatch(layThongTinPhongVeAction(objectDatVe.maLichChieu))
+            }
+
+        }catch(err){
+            console.log(err?.response)
+            console.log(err?.response?.data)
+            alertThatBaiAction("Dặt vé", err?.response?.data)
         }
     }
 }

@@ -17,7 +17,6 @@ const stateDefault = {
     // Xử lý đặt vé
     phongVe : {},
     danhSachGheDangChon: [],
-    objectDatVe: {}
 
 }
 
@@ -83,7 +82,7 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
                 danhSachGheDangChonUpdate.push(action.dataGheDangChon)
             }
             
-            return {...state, danhSachGheDangChon : danhSachGheDangChonUpdate, objectDatVe: action.dataDatVe}
+            return {...state, danhSachGheDangChon : danhSachGheDangChonUpdate}
         }
 
         default:

@@ -1,14 +1,31 @@
 @import '../../scss/main.scss';
 
-.datVe_left{
-    position: fixed;
-    max-width: 72%;
-    z-index: 5;
+
+
+.datVe_container{
+    .datVe_left{
+        position: relative;
+        max-width: 72%;
+        // z-index: 5;
+    }
+    
+    .chiTietThanhToan{
+        position: relative;
+        max-width: 30%;
+        // z-index: 20;
+        
+    }
 }
 
-.chiTietThanhToan{
-    position: fixed;
-    max-width: 30%;
-    z-index: 20;
-    
+.datVe_container{
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
 }
+
+.datVeMobile_container{
+    @media screen and (min-width: 850px) {
+        display: none;
+    }
+}
+

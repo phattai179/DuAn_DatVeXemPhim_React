@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { hienThiMauCumRapAction } from '../../../Redux/action/QuanLyHienThiLogicAction'
 import { layThongTinPhongVeAction } from '../../../Redux/action/QuanLyPhimAction'
+import TimeWaiting from '../TimeWaiting/TimeWaiting'
 import './DanhSachGhe.scss'
 import Ghe from './Ghe/Ghe'
 
@@ -17,7 +18,7 @@ export default function DanhSachGhe(props) {
 
     let phongVe = useSelector(state => state.QuanLyPhimReducer.phongVe)
 
-    console.log('phongVe', phongVe)
+    // console.log('phongVe', phongVe)
 
     // Xử lý logic hiện thị màu tên hệ thống rạp
     let maHeThongRap = useSelector(state => state.QuanLyPhimReducer.maHeThongRap)
@@ -47,7 +48,7 @@ export default function DanhSachGhe(props) {
         return tenHangGhe.map((item, index) => {
 
             return <Fragment key={index}>
-                <button className="ghe mr-4" style={{backgroundColor: "transparent", fontWeight: "600", fontSize: "18px", cursor: "none"}}>
+                <button className="ghe hangGhe" style={{backgroundColor: "transparent", fontWeight: "600", cursor: "none"}}>
                     {item}
                 </button>
                 <br></br>
@@ -80,6 +81,10 @@ export default function DanhSachGhe(props) {
                     </p>
                     <span className="title_diaChi">{phongVe?.thongTinPhim?.diaChi}</span>
                 </div>
+                <div className="boxTimeWaiting">
+                    <p>thời gian giữ ghế</p>
+                    {/* <TimeWaiting></TimeWaiting> */}
+                </div>
             </div>
             {/* <div className="screen">
 
@@ -93,7 +98,7 @@ export default function DanhSachGhe(props) {
                 </div>
 
             </div>
-            <div className="seat_position d-flex">
+            <div className="seat_position">
                 <div className="seat_nameList">
                     {renderTenHangGhe()}
                 </div>

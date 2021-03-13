@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2'
 import {history} from '../../App.js'
 
+
 export const alertThanhCongAction = (title) => {
     Swal.fire({
         icon: 'success',
@@ -21,5 +22,31 @@ export const alertThatBaiAction = (title, textThatBai) => {
         icon: 'error',
         title: `${title} thất bại`,
         text: textThatBai
+    })
+}
+
+export const alertCompletedTimeBooking = () => {
+    Swal.fire({
+        icon: 'error',
+        title: `Hết thời gian đặt vé`,
+        text: `Bạn có muốn đặt vé lại`,
+        showDenyButton: true,
+        confirmButtonText: 'Đồng ý',
+        denyButtonText: "Hủy"
+    }).then((result) => {
+        if(result.isConfirmed){
+            window.location.reload()
+        } else if (result.isDenied){
+            history.push('/trangchu')
+        }
+    })
+
+}
+
+export const alertCanhBaoDangNhap = () => {
+    Swal.fire({
+        icon: 'info',
+        title: `ĐĂNG NHẬP`,
+        text: 'Vui lòng đăng nhập đặt vé'
     })
 }

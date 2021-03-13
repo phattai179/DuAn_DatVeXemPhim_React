@@ -5,8 +5,10 @@
     z-index: 50;
     top: 0;
     right: 0;
-    width: 30%;
+    width: 27%;
     height: 100%;
+    overflow-y: scroll;
+    background-color: white;
     box-shadow: 0 0 15px rgba(0,0,0,.3);
     .total_payment{
         font-size: $fs-6;
@@ -43,6 +45,7 @@
     .method_payment{
         padding: 25px 0;
         margin: 0 15px;
+        margin-bottom: 60px;
         border-bottom: 2px dotted $color-gray-4;
         .method_detail{
             img{
@@ -53,13 +56,90 @@
         }
     }
     .btn-payment{
-        position: absolute;
+        position: fixed;
         bottom: 0;
         right: 0;
-        width: 100%;
+        width: 27%;
         padding-top: 20px;
         padding-bottom: 20px;
+        border-radius: 0;
+        background-color: $color-green-0;
+        color: white;
+        font-size: $fs-2;
+        letter-spacing: 1px;
+        font-weight: 500;
+        cursor: no-drop;
+        &:focus{
+            box-shadow: none;
+        }
         
     }
 
+}
+
+
+.booking_payment{
+    @media screen and (max-width: 1024px) {
+        .total_payment{
+            font-size: $fs-5;
+        }
+        .payment_detail{
+            font-size: $fs-0;
+        }
+        .method_payment{
+            font-size: $fs-0;
+        }
+        .btn-payment{
+            font-size: $fs-1;
+            padding-top: 15px;
+            padding-bottom: 15px;
+          
+        }
+    }
+    @media screen and (max-width: 850px) {
+        position: relative;
+        width: 100%;
+        margin-top: 200px;
+        margin-bottom: 80px;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        z-index: 2;
+        .btn-payment{
+            display: none;
+            visibility: hidden;
+        }
+    }
+}
+
+.btnPayment_mobile{
+    @media screen and (max-width: 850px) {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        z-index: 6;
+        .btn{
+            text-align: center;
+            padding: 20px 0;
+            width: 50%;
+            border-radius: 0;
+            font-size: $fs-2 - 2;
+            border-top: 1px solid $color-gray-2;
+        }
+        .btnDatVe_mobile{
+            background-color: $color-green-0;
+            color: white;
+        }
+        .btn_GheDat{
+            background-color: white;
+            color: $color-green-0;
+        }
+    }
+}
+
+// css thanh cuộn
+.booking_payment::-webkit-scrollbar{
+    width: 0;
 }

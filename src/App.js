@@ -13,6 +13,7 @@ import {createBrowserHistory} from 'history'
 import { USER_DANG_NHAP } from './utils/setting';
 import { LAY_USER_DANG_NHAP } from './Redux/type/TypeQuanLyUser';
 import TrangDatVe from './Page/TrangDatVe/TrangDatVe';
+import {BookingTemplate} from './Templates/BookingTemplate';
 
 export const history = createBrowserHistory()
 
@@ -67,9 +68,11 @@ function App() {
         }}>
         </Route>
 
-        <Route path="/datve/:maLichChieu" component={TrangDatVe}>
+        <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
 
-        </Route>
+        {/* <Route path="/datve/:maLichChieu" component={TrangDatVe}>
+
+        </Route> */}
 
 
         <Route path="/" component={TrangChu}></Route>

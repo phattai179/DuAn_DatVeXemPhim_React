@@ -11,17 +11,23 @@ export default function TrangDatVe(props) {
 
     return (
         <div className="datVe">
-            <div className="container-fluid">
+            <div className="container-fluid datVe_container">
+                {/* Hiển thị màn hình destop */}
                 <div className="row">
                     <div className="col-8 p-0 datVe_left">
-                        <HeaderDatVe className="col-12"></HeaderDatVe>
-                        <DanhSachGhe maLichChieu = {maLichChieu} className="col-12"></DanhSachGhe>
+                        <HeaderDatVe></HeaderDatVe>
+                        <DanhSachGhe maLichChieu={maLichChieu} className="col-12"></DanhSachGhe>
                     </div>
                     <div className="col-4 p-0 chiTietThanhToan">
-                        <ChiTietThanhToan></ChiTietThanhToan>
+                        <ChiTietThanhToan maLichChieu={maLichChieu} ></ChiTietThanhToan>
                     </div>
                 </div>
-
+                {/* Hiển thị màn hình mobile */}
+            </div>
+            <div className="datVeMobile_container">
+                <HeaderDatVe></HeaderDatVe>
+                <DanhSachGhe></DanhSachGhe>
+                <ChiTietThanhToan></ChiTietThanhToan>
             </div>
         </div>
     )

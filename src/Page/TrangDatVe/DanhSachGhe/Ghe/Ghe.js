@@ -12,18 +12,21 @@ export default function Ghe(props) {
     // Lấy danh Sách ghế đang chọn từ store
     let danhSachGheDangChon = useSelector(state => state.QuanLyPhimReducer.danhSachGheDangChon);
 
+    // console.log('danhSachGheDangChon', danhSachGheDangChon)
     // Xử lý loại ghế
     let loaiGhe = ghe.loaiGhe === "Vip" ? "gheVip" : ""
 
     let gheDaDat = ghe.daDat === true ? "gheDaDat" : ""
     let disabled = ghe.daDat === true ? true : false
 
-    let indexMaGheDangChon = danhSachGheDangChon.findIndex(gheDangChon => gheDangChon.maGhe === ghe.maGhe)
+    let indexMaGheDangChon = danhSachGheDangChon?.findIndex(gheDangChon => gheDangChon.maGhe === ghe.maGhe)
 
     let gheDangChon = indexMaGheDangChon !== -1 ? "gheDangChon" : ""
 
     let activeGheDangChon = gheDangChon !== "" ? "activeGheDangChon" : ""
 
+    // Sử dụng useState để thêm trước danh sách ghế đang chọn lên đặt vé
+    let [dsGheDatVe, setDsGheDatVe] = useState()
 
     const hienThiHangGhe = () => {
         if (ghe.stt <= 16) {
@@ -65,18 +68,16 @@ export default function Ghe(props) {
     return (
         <Fragment>
             <button disabled={disabled} onClick={() => {
-
-                let userLogin = JSON.parse(localStorage.getItem(USER_DANG_NHAP))
-                let objectDatVe = {
-                    maLichChieu : maLichChieu,
-                    danhSachVe: danhSachGheDangChon,
-                    taiKhoanNguoiDung: userLogin.taiKhoan 
-                }
-
+    
+                let tenSoGhe = `${hangGhe}${soGhe}`
                 dispatch({
                     type: CHON_GHE,
-                    dataGheDangChon: ghe,
-                    dataDatVe: objectDatVe
+                    dataGheDangChon: {
+                        maGhe: ghe.maGhe,
+                        giaVe: ghe.giaVe,
+                        stt: ghe.stt,
+                        tenSoGhe
+                    },
                 })
             }} className={`ghe ${loaiGhe} ${gheDangChon} ${gheDaDat}`}>
                 <span className={`gheContent ${activeGheDangChon}`}>

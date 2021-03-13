@@ -94,7 +94,7 @@ export default function Header() {
                             {userDangNhap?.hoTen ?
                             <div className="myHeader_content">
                                 <div className="myHeader_dangNhap">
-                                    <img src="./img/avatar_example.png"></img>
+                                    <img src="/img/avatar_example.png"></img>
                                     <a className="nav-link" href="#">{userDangNhap.hoTen}
                                     </a>
                                 </div>

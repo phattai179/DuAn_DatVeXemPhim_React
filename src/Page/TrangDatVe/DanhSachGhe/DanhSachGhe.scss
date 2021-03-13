@@ -3,6 +3,7 @@
 .datGhe_content {
     position: relative;
     top: 90px;
+    z-index: 2;
     .title_cumRap {
         display: flex;
         align-items: center;
@@ -23,11 +24,19 @@
                 font-weight: 500;
             }
         }
+        .boxTimeWaiting {
+            margin-left: auto;
+            text-align: center;
+            p:nth-child(1) {
+                font-size: $fs-0;
+                color: $color-gray-3;
+            }
+        }
     }
 
-    .screen{
+    .screen {
         position: relative;
-        margin: 30px 0;
+        margin: 20px 0;
         .box-screen {
             width: 90%;
             height: 23px;
@@ -53,24 +62,73 @@
         }
     }
 
-    .seat_position{
+    .seat_position {
         position: relative;
-        top: 80px;
+        top: 90px;
+        display: flex;
         justify-content: center;
-        // align-items: center;
+        .seat_nameList {
+            .hangGhe {
+                font-size: 18px;
+                margin-right: 15px;
+            }
+        }
+        .seat_list{
+            white-space: nowrap;
+        }
     }
 
-    .seat_note{
+    .seat_note {
         justify-content: center;
         position: relative;
         top: 90px;
-        div{
+        div {
             text-align: center;
             margin: 0 10px;
-            p{
+            p {
                 font-size: $fs-0;
             }
         }
     }
-    
+}
+
+.datGhe_content {
+    @media screen and (max-width: 992px) {
+        .title_cumRap {
+            div {
+                p {
+                    font-size: $fs-0;
+                }
+                .title_diaChi {
+                    font-size: $fs-0 - 2;
+                }
+            }
+        }
+        .seat_position{
+            .seat_nameList{
+                .hangGhe{
+                    font-size: $fs-0;
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 850px) {
+        width: 100%;
+        .seat_note{
+            margin-top: 30px;
+        }
+        
+    }
+
+    @media screen and (max-width: 550px) {
+        max-width: 120%;
+        overflow-x: scroll;
+        overflow-y: scroll;
+
+        .seat_note{
+            margin-top: 30px;
+        }
+        
+    }
 }
