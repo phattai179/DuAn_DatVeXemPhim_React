@@ -125,7 +125,7 @@ export default function ChiTietThanhToan(props) {
 
 
                 }} disabled={disabled} className="btn btn-payment" style={{ cursor: `${typeCursor}` }}>
-                    THANH TOÁN DESKTOP
+                    THANH TOÁN
             </button>
             </div>
 

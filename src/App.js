@@ -1,5 +1,5 @@
-import {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Switch, Route, Router } from 'react-router-dom'
 import ChiTietPhim from './Page/TrangChiTietPhim/ChiTietPhim';
 import TrangChu from './Page/TrangChu/TrangChu';
@@ -9,11 +9,14 @@ import BoxBooking from './Components/BoxBooking/BoxBooking';
 import TrangDangKy from './Page/TrangDangKy/TrangDangKy';
 import TrangDangNhap from './Page/TrangDangNhap/TrangDangNhap';
 
-import {createBrowserHistory} from 'history'
+import { createBrowserHistory } from 'history'
 import { USER_DANG_NHAP } from './utils/setting';
 import { LAY_USER_DANG_NHAP } from './Redux/type/TypeQuanLyUser';
 import TrangDatVe from './Page/TrangDatVe/TrangDatVe';
-import {BookingTemplate} from './Templates/BookingTemplate';
+import { BookingTemplate } from './Templates/BookingTemplate';
+import AdminTemplate from './Templates/AdminTemplate';
+import QuanLyNguoiDung from './Page/QuanLyNguoiDung/QuanLyNguoiDung';
+import QuanLyPhim from './Page/QuanLyPhim/QuanLyPhim';
 
 export const history = createBrowserHistory()
 
@@ -25,12 +28,12 @@ function App() {
 
   useEffect(() => {
     checkLocalStorage()
-  },[])
+  }, [])
 
   const checkLocalStorage = () => {
     let userDangNhap = localStorage.getItem(USER_DANG_NHAP)
 
-    if(userDangNhap){
+    if (userDangNhap) {
 
       dispatch({
         type: LAY_USER_DANG_NHAP,
@@ -41,7 +44,7 @@ function App() {
   }
 
   return (
-    <Router history = {history}>
+    <Router history={history}>
       <Switch>
         <Route exact path="/chitietphim/:maPhim" render={(propsRoute) => {
           return <div>
@@ -69,12 +72,11 @@ function App() {
         </Route>
 
         <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
-
-        {/* <Route path="/datve/:maLichChieu" component={TrangDatVe}>
-
-        </Route> */}
+        <AdminTemplate path="/admin/nguoidung" Component={QuanLyNguoiDung}></AdminTemplate>
+        <AdminTemplate path="/admin/phim" Component={QuanLyPhim}></AdminTemplate>
 
 
+        <Route path="/trangchu" component={TrangChu}></Route>
         <Route path="/" component={TrangChu}></Route>
       </Switch>
       {/* <TrangChu></TrangChu> */}

@@ -1,7 +1,9 @@
-import { DANG_XUAT, LAY_USER_DANG_NHAP } from "../type/TypeQuanLyUser";
+import { DANG_XUAT, LAY_DANH_SACH_NGUOI_DUNG, LAY_USER_DANG_NHAP } from "../type/TypeQuanLyUser";
 
 const stateDefault = {
-    userDangNhap : {}
+    userDangNhap : {},
+
+    danhSachNguoiDung: []
 }
 
 export const QuanLyUserReducer = (state = stateDefault, action) => {
@@ -13,6 +15,13 @@ export const QuanLyUserReducer = (state = stateDefault, action) => {
         
         case DANG_XUAT:{
             return {...state, userDangNhap: {}}
+        }
+
+        case LAY_DANH_SACH_NGUOI_DUNG : {
+            
+            state.danhSachNguoiDung = action.dataDanhSachNguoiDung
+            
+            return {...state}
         }
     
         default:

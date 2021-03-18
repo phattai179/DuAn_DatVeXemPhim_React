@@ -154,6 +154,12 @@
             color: $color-green-0;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .btn{
+            font-size: $fs-1;
+        }
+    }
 }
 
 // css thanh cuộn

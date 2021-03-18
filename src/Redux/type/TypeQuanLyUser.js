@@ -1,3 +1,5 @@
 export const LAY_USER_DANG_NHAP = 'LAY_USER_DANG_NHAP'
 
 export const DANG_XUAT = 'DANG_XUAT'
+
+export const LAY_DANH_SACH_NGUOI_DUNG = 'LAY_DANH_SACH_NGUOI_DUNG'

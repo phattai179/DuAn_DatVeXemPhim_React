@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2'
 import {history} from '../../App.js'
+import {Redirect} from 'react-router-dom'
 
 
 export const alertThanhCongAction = (title) => {
@@ -23,6 +24,15 @@ export const alertThatBaiAction = (title, textThatBai) => {
         title: `${title} thất bại`,
         text: textThatBai
     })
+}
+
+export const alertDangNhapQuanTriAction = (title, textThatBai) => {
+        Swal.fire({
+            icon: 'error',
+            title: `${title} thất bại`,
+            text: textThatBai
+        })
+    
 }
 
 export const alertCompletedTimeBooking = () => {

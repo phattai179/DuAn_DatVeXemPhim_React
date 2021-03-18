@@ -163,6 +163,15 @@
         .seat_note{
             margin-top: 30px;
         }
+        .seat_position{
+            .seat_nameList{
+                .hangGhe{
+                    font-size: $fs-0;
+                    margin-bottom: 6.5px;
+                    margin-right: 8px;
+                }
+            }
+        }
         
     }
 }

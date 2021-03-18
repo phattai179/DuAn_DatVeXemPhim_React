@@ -108,7 +108,7 @@ export default function DanhSachGhe(props) {
                 </div>
                 <div className="boxTimeWaiting">
                     <p>thời gian giữ ghế</p>
-                    {/* <TimeWaiting></TimeWaiting> */}
+                    <TimeWaiting></TimeWaiting>
                 </div>
             </div>
             {/* <div className="screen">

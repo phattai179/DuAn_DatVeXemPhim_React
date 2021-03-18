@@ -1,0 +1,8 @@
+@import '../../scss/main.scss';
+
+.movieTable{
+    width: 1200px;
+    @media screen and (max-width: 1200px) {
+        width: 700px;
+    }
+}
