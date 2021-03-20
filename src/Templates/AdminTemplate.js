@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -28,6 +28,8 @@ import { NavLink } from 'react-router-dom';
 import { USER_DANG_NHAP } from '../utils/setting';
 import { alertDangNhapQuanTriAction, alertThatBaiAction } from '../Redux/action/QuanLyModalAlert';
 import { Container, Grid, Paper } from '@material-ui/core';
+import Loading from '../Components/Loading/Loading';
+import { DISPLAY_LOADING, HIDE_LOADING } from '../Redux/type/TypeLoading';
 
 const drawerWidth = 240;
 
@@ -93,11 +95,15 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
         display: "flex",
-        flexDirection: "column" 
+        flexDirection: "column"
     },
 }));
 
 export default function AdminTemplate(props) {
+
+    const taiKhoanDangNhap = useSelector( state => state.QuanLyUserReducer.userDangNhap)
+
+    // console.log('userDangNhap', userDangNhap)
 
     const dispatch = useDispatch();
     const classes = useStyles();
@@ -112,6 +118,19 @@ export default function AdminTemplate(props) {
         setOpen(false);
     };
 
+    // Xử lý loading
+    let renderLoading = () => {
+        dispatch({
+            type: DISPLAY_LOADING
+        })
+
+        setTimeout(() => {
+            dispatch({
+                type: HIDE_LOADING
+            })
+        }, 2000)
+    }
+
 
     if (localStorage.getItem(USER_DANG_NHAP)) {
         let userDangNhap = localStorage.getItem(USER_DANG_NHAP)
@@ -119,109 +138,125 @@ export default function AdminTemplate(props) {
 
         if (loaiNguoiDung.maLoaiNguoiDung === "QuanTri") {
             return (
-                <div className={classes.root} >
-                    <CssBaseline />
-                    <AppBar
-                        position="fixed"
-                        className={clsx(classes.appBar, {
-                            [classes.appBarShift]: open,
-                        })}
-                    >
-                        <Toolbar>
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                onClick={handleDrawerOpen}
-                                edge="start"
-                                className={clsx(classes.menuButton, open && classes.hide)}
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Typography variant="h6" noWrap>
-                                QUẢN TRỊ HỆ THỐNG
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    <Drawer
-                        className={classes.drawer}
-                        variant="persistent"
-                        anchor="left"
-                        open={open}
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                    >
+                <Route path={props.path} exact render={(propsRoute) => {
+                    return (
+                        <div>
+                            <Loading></Loading>
+                            {renderLoading()}
+                            <div className={classes.root} >
+                                <CssBaseline />
+                                <AppBar
+                                    position="fixed"
+                                    className={clsx(classes.appBar, {
+                                        [classes.appBarShift]: open,
+                                    })}
+                                >
+                                    <Toolbar>
+                                        <IconButton
+                                            color="inherit"
+                                            aria-label="open drawer"
+                                            onClick={handleDrawerOpen}
+                                            edge="start"
+                                            className={clsx(classes.menuButton, open && classes.hide)}
+                                        >
+                                            <MenuIcon />
+                                        </IconButton>
+                                        <div className="d-flex w-100" style={{justifyContent: "space-between"}}>
+                                            <Typography variant="h6" noWrap>
+                                                QUẢN TRỊ HỆ THỐNG
+                                            </Typography>
+                                            <div className="d-flex" style={{alignItems: "center"}}>
+                                                <img src={"/img/avatar_example.png"} style={{width: "30px", height: "30px", borderRadius: "50%"}} ></img>
+                                                <h6 className="ml-2 mb-0" >{taiKhoanDangNhap.taiKhoan}</h6>
+                                            </div>
+                                        </div>
 
-                        <div className={classes.drawerHeader} style={{ justifyContent: "space-between" }}>
-                            <Fragment>
-                                <Typography style={{ color: "#3f51b5", textAlign: "left", fontWeight: "600", fontSize: "20px", marginLeft: "5px" }}>CYBERSOFT</Typography>
-                            </Fragment>
-                            <IconButton onClick={handleDrawerClose} >
-                                {theme.direction === 'ltr' ?
-                                    <ChevronLeftIcon />
-                                    : <ChevronRightIcon />}
-                            </IconButton>
+                                    </Toolbar>
+                                </AppBar>
+                                <Drawer
+                                    className={classes.drawer}
+                                    variant="persistent"
+                                    anchor="left"
+                                    open={open}
+                                    classes={{
+                                        paper: classes.drawerPaper,
+                                    }}
+                                >
 
+                                    <div className={classes.drawerHeader} style={{ justifyContent: "space-between" }}>
+                                        <Fragment>
+                                            <Typography style={{ color: "#3f51b5", textAlign: "left", fontWeight: "600", fontSize: "20px", marginLeft: "5px" }}>CYBERSOFT</Typography>
+                                        </Fragment>
+                                        <IconButton onClick={handleDrawerClose} >
+                                            {theme.direction === 'ltr' ?
+                                                <ChevronLeftIcon />
+                                                : <ChevronRightIcon />}
+                                        </IconButton>
+
+                                    </div>
+                                    <Divider />
+                                    <List>
+                                        {['Quản lý phim', 'Quản lý người dùng'].map((text, index) => {
+                                            let iconElement = ""
+                                            let url = ""
+                                            if (index === 0) {
+                                                iconElement = <MovieIcon />
+                                                url = "/admin/phim"
+                                            } else if (index === 1) {
+                                                iconElement = <PersonIcon />
+                                                url = "/admin/nguoidung"
+                                            }
+                                            return <NavLink to={url} style={{ listStyle: "none", color: "black" }} activeStyle={{ color: "#3f51b5" }} key={index}>
+                                                <ListItem button key={text}>
+                                                    <ListItemIcon style={{ color: "unset" }}>
+                                                        {iconElement}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={text} />
+                                                </ListItem>
+                                            </NavLink>
+                                        })}
+                                    </List>
+                                    <Divider />
+                                    <List>
+                                        {['Quay lại trang chủ', 'Đăng xuất'].map((text, index) => {
+
+                                            let url = index === 0 ? "/trangchu" : "/dangnhap"
+                                            return <NavLink to={url} style={{ listStyle: "none", color: "black" }} activeStyle={{ color: "#3f51b5" }} key={index} >
+                                                <ListItem button key={text}>
+                                                    <ListItemIcon style={{ color: "unset" }}>
+                                                        {index === 0 ? <HomeIcon /> : <PowerSettingsNewIcon />}
+                                                    </ListItemIcon>
+                                                    <ListItemText primary={text} />
+                                                </ListItem>
+                                            </NavLink>
+
+                                        })}
+                                    </List>
+                                </Drawer>
+                                <main
+                                    className={clsx(classes.content, {
+                                        [classes.contentShift]: open,
+                                    })}
+
+                                >
+                                    <div className={classes.drawerHeader} />
+
+                                    <Grid container spacing={3} >
+                                        <Grid item xs={12}>
+                                            <Paper className={classes.paper} >
+                                                <props.Component {...propsRoute} ></props.Component>
+                                            </Paper>
+                                        </Grid>
+                                    </Grid>
+
+                                </main>
+                            </div>
                         </div>
-                        <Divider />
-                        <List>
-                            {['Quản lý phim', 'Quản lý người dùng'].map((text, index) => {
-                                let iconElement = ""
-                                let url = ""
-                                if (index === 0) {
-                                    iconElement = <MovieIcon />
-                                    url = "/admin/phim"
-                                } else if (index === 1) {
-                                    iconElement = <PersonIcon />
-                                    url = "/admin/nguoidung"
-                                }
-                                return <NavLink to={url} style={{ listStyle: "none", color: "black" }} activeStyle={{ color: "#3f51b5" }} key={index}>
-                                    <ListItem button key={text}>
-                                        <ListItemIcon style={{ color: "unset" }}>
-                                            {iconElement}
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                    </ListItem>
-                                </NavLink>
-                            })}
-                        </List>
-                        <Divider />
-                        <List>
-                            {['Quay lại trang chủ', 'Đăng xuất'].map((text, index) => {
-
-                                let url = index === 0 ? "/trangchu" : "/dangnhap"
-                                return <NavLink to={url} style={{ listStyle: "none", color: "black" }} activeStyle={{ color: "#3f51b5" }} key={index} >
-                                    <ListItem button key={text}>
-                                        <ListItemIcon style={{ color: "unset" }}>
-                                            {index === 0 ? <HomeIcon /> : <PowerSettingsNewIcon />}
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                    </ListItem>
-                                </NavLink>
-
-                            })}
-                        </List>
-                    </Drawer>
-                    <main
-                        className={clsx(classes.content, {
-                            [classes.contentShift]: open,
-                        })}
-
-                    >
-                        <div className={classes.drawerHeader} />
-
-                        <Grid container spacing={3} >
-                            <Grid item xs={12}>
-                                <Paper className={classes.paper} >
-                                    <props.Component></props.Component>
-                                </Paper>
-                            </Grid>
-                        </Grid>
+                    )
+                }} ></Route>
 
 
 
-                    </main>
-                </div>
             )
         } else {
             alertDangNhapQuanTriAction("Truy cập", "Bạn không phải là quản trị")

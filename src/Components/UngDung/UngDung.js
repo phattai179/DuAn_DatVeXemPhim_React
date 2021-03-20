@@ -21,7 +21,7 @@ export default function UngDung() {
     };
 
     return (
-        <div className="myApplication" >
+        <div className="myApplication" id="ungDung" >
             <div className="container mx-auto" >
                 <div className="row myApplication_content">
                     <div className="col-12 col-lg-7 myApplication_right">

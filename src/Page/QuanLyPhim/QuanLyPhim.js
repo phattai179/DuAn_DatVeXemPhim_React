@@ -33,24 +33,26 @@ export default function QuanLyPhim() {
         {
             title: 'Hình ảnh', field: 'hinhAnh',
             render: rowData => <img src={rowData.hinhAnh} style={{ width: "80px", height: "120px" }} ></img>,
-            editComponent: props => (
-                <div>
-                    <input name="hinhAnh" type="file" onChange={e => props.onChange(e.target.files[0])} ></input>
-                    <img src={props.value} style={{ width: "80px", height: "120px" }} ></img>
-                </div>
+            editComponent: props => 
+                (
+                    <div>
+                        <input name="hinhAnh" type="file" onChange={e =>
+                            props.onChange(e.target.files[0])} ></input>
+                        <img src={props.value} style={{ width: "80px", height: "120px" }} ></img>
+                    </div>
 
-            )
+                )
         },
 
         {
             title: 'Mô tả', field: 'moTa', width: "100%",
             cellStyle: {
                 width: "100%"
-            }, 
-            render: rowData => <div style={{width: "100%", minWidth: "300px"}}>{rowData.moTa.length > 150 ? rowData.moTa.substr(0, 150) : rowData.moTa}</div>,
+            },
+            render: rowData => <div style={{ width: "100%", minWidth: "300px" }}>{rowData.moTa.length > 150 ? rowData.moTa.substr(0, 150) : rowData.moTa}</div>,
             editComponent: props => (
                 <textarea
-                    style={{width: "100%", height: "150px"}}
+                    style={{ width: "100%", height: "150px" }}
                     row="10"
                     value={props.value}
                     onChange={(e) => props.onChange(e.target.value)}
@@ -83,7 +85,7 @@ export default function QuanLyPhim() {
             title="Quản lý phim"
             columns={columns}
             data={data}
-            
+
             options={{
                 maxBodyHeight: "500px",
                 draggable: false,

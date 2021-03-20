@@ -1,7 +1,9 @@
 @import '../../scss/main.scss';
 
 .myListFilm{
-    margin-top: -20px;
+    position: relative;
+    // margin-top: -20px;
+    top: -20px;
     .myListFilm_title{
         color: $color-black-0;
         font-size: $fs-4;
@@ -17,6 +19,10 @@
     .active{
         color: $color-orange-0;
     }
+}
 
-
+.myListFilm{
+    @media screen and (max-width: 992px) {
+        top: 10px;
+    }
 }

@@ -2,6 +2,10 @@ import React, { Fragment, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import './HeaderDatVe.scss'
+import '../../../Components/Header/Header.scss'
+import { ACCESS_TOKEN, USER_DANG_NHAP } from '../../../utils/setting'
+import { DANG_XUAT } from '../../../Redux/type/TypeQuanLyUser'
+import { alertDangXuat } from '../../../Redux/action/QuanLyModalAlert'
 
 export default function HeaderDatVe() {
 
@@ -13,7 +17,7 @@ export default function HeaderDatVe() {
     let activeDanhSachGhe = useSelector(state => state.QuanLyPhimReducer.activeDanhSachGheMobile)
 
     let activeChiTietThanhToan = useSelector(state => state.QuanLyPhimReducer.activeChiTietThanhToanMobile)
-    
+
     let statusChonGhe = activeDanhSachGhe ? "flex" : "none"
     let statusThanhToan = activeChiTietThanhToan ? "flex" : "none"
     let activeChonGhe = activeDanhSachGhe ? "active" : ""
@@ -22,6 +26,27 @@ export default function HeaderDatVe() {
     // Xử lý logic hiện thị logo
     let activeMenu = useSelector(state => state.QuanLyMenuThucAnReducer.activeMenu)
 
+    // Xử lý logic hiển thị ảnh avatar trên header
+    // Xử lý logic hiển thị ảnh
+    let taiKhoanLuuAnh = ""
+    if (localStorage.getItem(USER_DANG_NHAP)) {
+        let userDangNhap = localStorage.getItem(USER_DANG_NHAP)
+        let taiKhoan = JSON.parse(userDangNhap).taiKhoan
+        taiKhoanLuuAnh = localStorage.getItem(taiKhoan)
+    }
+
+    let imgSrc = ""
+
+    if (taiKhoanLuuAnh) {
+        imgSrc = JSON.parse(taiKhoanLuuAnh).img
+    } else {
+        imgSrc = "/img/avatar_example.png"
+    }
+    console.log('taiKhoanAnh', imgSrc)
+
+    let [avatar, setAvatar] = useState({
+        img: imgSrc
+    })
 
 
     return (
@@ -33,24 +58,24 @@ export default function HeaderDatVe() {
                     </NavLink>
 
                     :
-                    <img 
-                    className="ml-3" 
-                    src='/img/logo_back.png' 
-                    style={{ width: "40px", height: "40px", cursor: "pointer" }}
-                    onClick={() => {
-                        if(activeMenu){
-                            dispatch({
-                                type: "XET_ACTIVE_MENU",
-                                statusActive: false
-                            })
-                        }else{
-                            dispatch({
-                                type: "ACTIVE_TRANG_DAT_VE_MOBILE",
-                                statusDanhSachGheMobile: true,
-                                statusChiTietThanhToanMobile: false
-                            })
-                        }
-                    }}></img>
+                    <img
+                        className="ml-3"
+                        src='/img/logo_back.png'
+                        style={{ width: "40px", height: "40px", cursor: "pointer" }}
+                        onClick={() => {
+                            if (activeMenu) {
+                                dispatch({
+                                    type: "XET_ACTIVE_MENU",
+                                    statusActive: false
+                                })
+                            } else {
+                                dispatch({
+                                    type: "ACTIVE_TRANG_DAT_VE_MOBILE",
+                                    statusDanhSachGheMobile: true,
+                                    statusChiTietThanhToanMobile: false
+                                })
+                            }
+                        }}></img>
                 }
             </Fragment>
 
@@ -78,9 +103,26 @@ export default function HeaderDatVe() {
             </ul>
 
             {/* End màn hình booking_step mobile */}
-            <div className="booking_user">
-                <img src='/img/avatar_example.png' style={{ width: "30px", height: "30px" }} ></img>
-                <p>{userDangNhap.hoTen}</p>
+            <div className="booking_user myHeader_content">
+                {/* <img src='/img/avatar_example.png' style={{ width: "30px", height: "30px" }} ></img>
+                <p>{userDangNhap.hoTen}</p> */}
+                <div className="myHeader_dangNhap">
+                    <img src={avatar.img}></img>
+                    <a className="nav-link text-dark px-1" href="#">{userDangNhap.hoTen}
+                    </a>
+                </div>
+                <div className="myHeader_dangNhapDetail">
+                    <NavLink to="/thongtin" className="thongTin" >Thông tin người dùng</NavLink>
+                    <p className="thongTin mx-0" onClick={() => {
+                        dispatch(alertDangXuat())
+                        // localStorage.removeItem(ACCESS_TOKEN)
+                        // localStorage.removeItem(USER_DANG_NHAP)
+                        // dispatch({
+                        //     type: DANG_XUAT
+                        // })
+                    }}>Đăng xuất</p>
+                </div>
+
             </div>
         </div>
     )

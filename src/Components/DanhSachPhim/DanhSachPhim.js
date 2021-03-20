@@ -29,21 +29,21 @@ export default function DanhSachPhim() {
             {
                 breakpoint: 1100,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    rows: 1,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    rows: 2,
                     dots: false,
-                    infinite: false,
+                    infinite: true,
                 }
             },
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
                     rows: 1,
                     dots: false,
-                    infinite: false,
+                    infinite: true,
                 }
             }
         ]
@@ -97,7 +97,7 @@ export default function DanhSachPhim() {
 
     return (
 
-        <div className="myListFilm">
+        <div className="myListFilm" id="lichChieu">
             <div className="container" >
                 <div className="row" >
                     <div className="col-12 text-center" >

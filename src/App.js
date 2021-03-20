@@ -17,6 +17,9 @@ import { BookingTemplate } from './Templates/BookingTemplate';
 import AdminTemplate from './Templates/AdminTemplate';
 import QuanLyNguoiDung from './Page/QuanLyNguoiDung/QuanLyNguoiDung';
 import QuanLyPhim from './Page/QuanLyPhim/QuanLyPhim';
+import ThongTinCaNhan from './Page/ThongTinCaNhan/ThongTinCaNhan';
+import Loading from './Components/Loading/Loading';
+import { DISPLAY_LOADING, HIDE_LOADING } from './Redux/type/TypeLoading';
 
 export const history = createBrowserHistory()
 
@@ -43,11 +46,27 @@ function App() {
 
   }
 
+  let renderLoading = () => {
+    dispatch({
+      type: DISPLAY_LOADING
+    })
+
+    setTimeout(() => {
+      dispatch({
+        type: HIDE_LOADING
+      })
+    }, 2000)
+  }
+
   return (
     <Router history={history}>
+      <Loading></Loading>
+      {renderLoading()}
       <Switch>
         <Route exact path="/chitietphim/:maPhim" render={(propsRoute) => {
           return <div>
+            <Loading></Loading>
+            {renderLoading()}
             <Header></Header>
             <ChiTietPhim {...propsRoute}></ChiTietPhim>
             <Footer></Footer>
@@ -55,6 +74,8 @@ function App() {
         }}></Route>
         <Route path="/dangky" render={(propsRoute) => {
           return <div>
+            <Loading></Loading>
+            {renderLoading()}
             <Header></Header>
             <TrangDangKy {...propsRoute}></TrangDangKy>
             <Footer></Footer>
@@ -64,12 +85,24 @@ function App() {
 
         <Route path="/dangnhap" render={(propsRoute) => {
           return <div>
+            <Loading></Loading>
+            {renderLoading()}
             <Header></Header>
             <TrangDangNhap {...propsRoute}></TrangDangNhap>
             <Footer></Footer>
           </div>
         }}>
         </Route>
+
+        <Route path="/thongtin" render={(propsRoute) => {
+          return <div>
+            <Loading></Loading>
+            {renderLoading()}
+            <Header></Header>
+            <ThongTinCaNhan {...propsRoute} ></ThongTinCaNhan>
+            <Footer></Footer>
+          </div>
+        }} ></Route>
 
         <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
         <AdminTemplate path="/admin/nguoidung" Component={QuanLyNguoiDung}></AdminTemplate>
