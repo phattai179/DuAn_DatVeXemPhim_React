@@ -25,7 +25,7 @@ export default function TimeWaiting() {
     return (
         <Fragment>
             <CountDown
-                date={Date.now() + 30000}
+                date={Date.now() + 180000}
                 renderer={renderer}
                 onComplete={alertCompletedTimeBooking}
             >

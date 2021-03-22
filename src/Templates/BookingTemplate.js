@@ -1,4 +1,5 @@
 import {useDispatch} from 'react-redux'
+import {useEffect} from "react"
 import { Route, Redirect } from 'react-router-dom'
 import Loading from '../Components/Loading/Loading'
 import { alertCanhBaoDangNhap } from '../Redux/action/QuanLyModalAlert'
@@ -8,6 +9,10 @@ import { USER_DANG_NHAP } from '../utils/setting'
 export const BookingTemplate = (props) => {
 
     const dispatch = useDispatch()
+
+    useEffect(() => {
+      renderLoading()
+    },[])
 
     let renderLoading = () => {
         dispatch({
@@ -27,7 +32,6 @@ export const BookingTemplate = (props) => {
             return (
                 <div>
                     <Loading></Loading>
-                    {renderLoading()}
                     <props.Component {...propsRouter} />
                 </div>
             )

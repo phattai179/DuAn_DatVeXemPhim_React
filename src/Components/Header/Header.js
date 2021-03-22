@@ -57,7 +57,7 @@ export default function Header() {
     } else {
         imgSrc = "/img/avatar_example.png"
     }
-    console.log('taiKhoanAnh', imgSrc)
+    // console.log('taiKhoanAnh', imgSrc)
 
     let [avatar, setAvatar] = useState({
         img: imgSrc
@@ -71,8 +71,10 @@ export default function Header() {
 
     return (
         <div className="myHeader">
-            <nav className="navbar navbar-expand-md navbar-light bg-light">
-                <a className="navbar-brand" href="/trangchu">Navbar</a>
+            <nav className="navbar navbar-expand-md py-0">
+                <a className="navbar-brand" href="/trangchu">
+                    <img src="/img/web-logo.png" style={{width: "50px", height: "50px"}} ></img>
+                </a>    
                 {/* Nút thu nhỏ khi reponsive */}
                 <button onClick={changeToggle} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     {/* {icon.isOpen ? <i class="fa fa-bars"></i> : <i class="fa fa-times"></i> } */}
@@ -86,7 +88,7 @@ export default function Header() {
                                 <div className="myHeader_content text-center mr-0">
                                     <div className="myHeader_dangNhap">
                                         <img src={avatar.img}></img>
-                                        <a className="nav-link ml-2" href="#">{userDangNhap.hoTen}
+                                        <a className="nav-link ml-2" href="#">{userDangNhap.taiKhoan}
                                         </a>
                                     </div>
                                     <div className="myHeader_dangNhapDetail">
@@ -127,6 +129,9 @@ export default function Header() {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#ungDung">Ứng Dụng</a>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink to="/admin/phim" className="nav-link">Admin</NavLink>
                         </li>
                     </ul>
                 </div>

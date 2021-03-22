@@ -1,12 +1,13 @@
 @import '../../scss/main.scss';
 
 .thongTinCaNhan{
-    background-color: #fefefe;
+    background-color: #f0f0f0d3;
     position: relative;
-    top: 55px;
+    // top: 55px;
     left: 0px;
     margin-top: 50px;
-    margin-bottom: 150px;
+    // margin-bottom: 150px;
+    padding: 50px 0;
 }
 
 .myThongTin{
@@ -30,8 +31,8 @@
                 
             }
         }
-        .box_body{
-            background-color: white;
-        }
+        // .box_body{
+        //     background-color: white;
+        // }
     }
 }

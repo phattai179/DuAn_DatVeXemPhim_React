@@ -115,7 +115,7 @@ export const layThongTinCaNhanAction = () => {
     userDangNhap = JSON.parse(userDangNhap)
     let taiKhoan = userDangNhap.taiKhoan
 
-    console.log('taiKhoan', taiKhoan)
+    // console.log('taiKhoan', taiKhoan)
     return async (dispatch) => {
         try {
 
@@ -132,9 +132,9 @@ export const layThongTinCaNhanAction = () => {
                 }
             })
 
-            console.log('resule', result)
+            // console.log('resule', result)
             if (result.status === STATUS_CODE.SUCCESS) {
-                console.log('data', result.data)
+                // console.log('data', result.data)
                 dispatch({
                     type: LAY_THONG_TIN_CA_NHAN,
                     data: result.data

@@ -9,10 +9,10 @@ import { SET_TEN_HE_THONG_RAP } from '../../Redux/type/TypeQuanLyPhim'
 export default function DropdownDatVe() {
 
     let mangPhim = useSelector(state => state.QuanLyPhimReducer.mangPhim)
-    console.log('mangPhim', mangPhim)
+    // console.log('mangPhim', mangPhim)
 
     const thongTinPhim = useSelector(state => state.QuanLyPhimReducer.thongTinLichChieuChiTietPhim)
-    console.log('thongTinPhim', thongTinPhim)
+    // console.log('thongTinPhim', thongTinPhim)
 
     let [phim, setPhim] = useState({
         maPhim: 0,
@@ -22,7 +22,7 @@ export default function DropdownDatVe() {
         lichChieu: "Lịch chiếu",
         maLichChieu: 0,
     })
-    console.log('phim', phim)
+    // console.log('phim', phim)
 
     const dispatch = useDispatch()
 

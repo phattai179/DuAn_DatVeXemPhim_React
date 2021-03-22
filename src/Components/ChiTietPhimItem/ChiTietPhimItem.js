@@ -11,7 +11,7 @@ import { OPEN_MODAL_VIDEO } from '../../Redux/type/TypePopupModal'
 export default function ChiTietPhimItem(props) {
 
     let { thongTinPhim } = props
-    console.log('thongTinPhim', thongTinPhim)
+    // console.log('thongTinPhim', thongTinPhim)
 
     const dispatch = useDispatch()
 

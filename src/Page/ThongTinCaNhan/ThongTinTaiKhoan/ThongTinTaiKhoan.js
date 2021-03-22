@@ -34,7 +34,7 @@ function ThongTinTaiKhoan(props) {
     })
 
     // console.log('imgSetState', avatar.img)
-    console.log('thongTinCapNhat', thongTinCapNhat)
+    // console.log('thongTinCapNhat', thongTinCapNhat)
 
     // End xử lý logic hiển thị ảnh
 

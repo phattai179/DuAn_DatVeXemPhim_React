@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect, Suspense, lazy } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter, Switch, Route, Router } from 'react-router-dom'
 import ChiTietPhim from './Page/TrangChiTietPhim/ChiTietPhim';
@@ -22,9 +22,18 @@ import Loading from './Components/Loading/Loading';
 import { DISPLAY_LOADING, HIDE_LOADING } from './Redux/type/TypeLoading';
 import QuanLyLichChieu from './Page/QuanLyLichChieu/QuanLyLichChieu';
 
+
+
 export const history = createBrowserHistory()
 
+// const TrangChu = lazy(() => import("./Page/TrangChu/TrangChu"))
+// const Header = lazy(() => import("./Components/Header/Header"))
+// const Footer = lazy(() => import("./Components/Footer/Footer"))
+// const ChiTietPhim = lazy(() => import("./Page/TrangChiTietPhim/ChiTietPhim"))
+
+
 function App() {
+
 
   const dispatch = useDispatch()
 
@@ -32,6 +41,16 @@ function App() {
 
   useEffect(() => {
     checkLocalStorage()
+    dispatch({
+      type: DISPLAY_LOADING
+    })
+
+    setTimeout(() => {
+      dispatch({
+        type: HIDE_LOADING
+      })
+    }, 2000)
+
   }, [])
 
   const checkLocalStorage = () => {
@@ -61,60 +80,55 @@ function App() {
 
   return (
     <Router history={history}>
-      <Loading></Loading>
-      {renderLoading()}
-      <Switch>
-        <Route exact path="/chitietphim/:maPhim" render={(propsRoute) => {
-          return <div>
-            <Loading></Loading>
-            {renderLoading()}
-            <Header></Header>
-            <ChiTietPhim {...propsRoute}></ChiTietPhim>
-            <Footer></Footer>
-          </div>
-        }}></Route>
-        <Route path="/dangky" render={(propsRoute) => {
-          return <div>
-            <Loading></Loading>
-            {renderLoading()}
-            <Header></Header>
-            <TrangDangKy {...propsRoute}></TrangDangKy>
-            <Footer></Footer>
-          </div>
-        }}>
-        </Route>
+        <Loading/>
+        <Switch>
+          <Route exact path="/chitietphim/:maPhim" render={(propsRoute) => {
+            return <div>
+              <Header></Header>
+              <ChiTietPhim {...propsRoute}></ChiTietPhim>
+              <Footer></Footer>
+            </div>
+          }}></Route>
+          <Route path="/dangky" render={(propsRoute) => {
+            return <div>
+              <Header></Header>
+              <TrangDangKy {...propsRoute}></TrangDangKy>
+              <Footer></Footer>
+            </div>
+          }}>
+          </Route>
 
-        <Route path="/dangnhap" render={(propsRoute) => {
-          return <div>
-            <Loading></Loading>
-            {renderLoading()}
-            <Header></Header>
-            <TrangDangNhap {...propsRoute}></TrangDangNhap>
-            <Footer></Footer>
-          </div>
-        }}>
-        </Route>
+          <Route path="/dangnhap" render={(propsRoute) => {
+            return <div>
 
-        <Route path="/thongtin" render={(propsRoute) => {
-          return <div>
-            <Loading></Loading>
-            {renderLoading()}
-            <Header></Header>
-            <ThongTinCaNhan {...propsRoute} ></ThongTinCaNhan>
-            <Footer></Footer>
-          </div>
-        }} ></Route>
+              <Header></Header>
+              <TrangDangNhap {...propsRoute}></TrangDangNhap>
+              <Footer></Footer>
+            </div>
+          }}>
+          </Route>
 
-        <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
-        
-        <AdminTemplate path="/admin/nguoidung" Component={QuanLyNguoiDung}></AdminTemplate>
-        <AdminTemplate path="/admin/phim" Component={QuanLyPhim}></AdminTemplate>
-        <AdminTemplate path="/admin/lichchieu" Component={QuanLyLichChieu} ></AdminTemplate>
+          <Route path="/thongtin" render={(propsRoute) => {
+            return <div>
+              <Header></Header>
+              <ThongTinCaNhan {...propsRoute} ></ThongTinCaNhan>
+              <Footer></Footer>
+            </div>
+          }} ></Route>
 
-        <Route path="/trangchu" component={TrangChu}></Route>
-        <Route path="/" component={TrangChu}></Route>
-      </Switch>
-      {/* <TrangChu></TrangChu> */}
+          <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
+
+          <AdminTemplate path="/admin/nguoidung" Component={QuanLyNguoiDung}></AdminTemplate>
+          <AdminTemplate path="/admin/phim" Component={QuanLyPhim}></AdminTemplate>
+          <AdminTemplate path="/admin/lichchieu" Component={QuanLyLichChieu} ></AdminTemplate>
+
+          <Route path="/trangchu" component={TrangChu}></Route>
+          <Route path="/*" component={TrangChu}></Route>
+
+        </Switch>
+        {/* <TrangChu></TrangChu> */}
+
+
     </Router>
 
   );

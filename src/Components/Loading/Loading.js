@@ -6,6 +6,8 @@ export default function Loading() {
 
     const isLoading = useSelector(state => state.QuanLyLoadingReducer.isLoading)
 
+    
+
     if (isLoading) {
         return (
             <div className={style.bgLoading}>

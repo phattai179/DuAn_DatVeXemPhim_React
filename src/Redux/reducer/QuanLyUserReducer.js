@@ -56,7 +56,7 @@ export const QuanLyUserReducer = (state = stateDefault, action) => {
 
         case LAY_THONG_TIN_CAP_NHAT: {
 
-            console.log('try', action.thongTinCaNhan)
+            // console.log('try', action.thongTinCaNhan)
             let newValueUser = {
                 taiKhoan: action.thongTinCaNhan.taiKhoan,
                 matKhau: action.thongTinCaNhan.matKhau,

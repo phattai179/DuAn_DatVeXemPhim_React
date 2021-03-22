@@ -141,7 +141,7 @@ export const layThongTinLichChieuChiTietPhimAction = (maPhim) => {
 }
 
 export const layThongTinPhongVeAction = (maLichChieu) => {
-    console.log('maLichChieu', maLichChieu)
+    // console.log('maLichChieu', maLichChieu)
     return async (dispatch) => {
         try {
             let result = await Axios({

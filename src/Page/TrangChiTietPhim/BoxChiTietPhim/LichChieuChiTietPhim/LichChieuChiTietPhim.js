@@ -138,7 +138,7 @@ export default function LichChieuChiTietPhim(props) {
                 let indexStatusNgayChieu = 0;
                 let ArrLichChieuTheoNgay = cumRap?.lichChieuPhim.filter(itemCumRap => moment(itemCumRap.ngayChieuGioChieu).format("DD-MM") === ngayChieuHienThi.ngayChieu)
 
-                console.log('arrLichChieuTheoNgay', ArrLichChieuTheoNgay)
+                // console.log('arrLichChieuTheoNgay', ArrLichChieuTheoNgay)
 
                 let objectCumRap = hienThiMauCumRapAction(heThongRap.maHeThongRap)
                 // console.log('obCumRap', objectCumRap)

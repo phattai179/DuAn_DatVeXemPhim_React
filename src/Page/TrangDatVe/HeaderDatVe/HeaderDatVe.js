@@ -42,7 +42,7 @@ export default function HeaderDatVe() {
     } else {
         imgSrc = "/img/avatar_example.png"
     }
-    console.log('taiKhoanAnh', imgSrc)
+    // console.log('taiKhoanAnh', imgSrc)
 
     let [avatar, setAvatar] = useState({
         img: imgSrc

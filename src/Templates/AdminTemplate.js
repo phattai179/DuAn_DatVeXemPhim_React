@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Redirect, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import clsx from 'clsx';
@@ -120,6 +120,12 @@ export default function AdminTemplate(props) {
     };
 
     // Xử lý loading
+
+    useEffect(() => {
+        renderLoading()
+    },[])
+
+
     let renderLoading = () => {
         dispatch({
             type: DISPLAY_LOADING
@@ -143,7 +149,6 @@ export default function AdminTemplate(props) {
                     return (
                         <div>
                             <Loading></Loading>
-                            {renderLoading()}
                             <div className={classes.root} >
                                 <CssBaseline />
                                 <AppBar

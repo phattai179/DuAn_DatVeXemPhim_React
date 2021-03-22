@@ -20,7 +20,7 @@ export default function ChiTietThanhToan(props) {
 
     let activeChiTietThanhToanMobile = useSelector(state => state.QuanLyPhimReducer.activeChiTietThanhToanMobile)
 
-    console.log('chiTietThanhToanAc', activeChiTietThanhToanMobile)
+    // console.log('chiTietThanhToanAc', activeChiTietThanhToanMobile)
 
     let chiTietThanhToanMobile = activeChiTietThanhToanMobile ? "chiTietThanhToanMobile" : ""
 
@@ -35,7 +35,7 @@ export default function ChiTietThanhToan(props) {
     const dispatch = useDispatch()
     // console.log('dsGheDangChon', danhSachGheDangChon)
 
-    console.log('phongVe', phongVe)
+    // console.log('phongVe', phongVe)
 
 
     // Xử lý logic hiển thị combo truyền xuống con MenuCinema
