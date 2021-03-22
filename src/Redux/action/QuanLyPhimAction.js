@@ -126,7 +126,7 @@ export const layThongTinLichChieuChiTietPhimAction = (maPhim) => {
                 method: "GET"
             })
 
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 dispatch({
                     type: LAY_THONG_TIN_LICH_CHIEU_CHI_TIET_PHIM,
                     data: result.data
@@ -143,7 +143,7 @@ export const layThongTinLichChieuChiTietPhimAction = (maPhim) => {
 export const layThongTinPhongVeAction = (maLichChieu) => {
     console.log('maLichChieu', maLichChieu)
     return async (dispatch) => {
-        try{
+        try {
             let result = await Axios({
                 url: `${DOMAIN}/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`,
                 method: "GET"
@@ -151,14 +151,14 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
 
             // console.log('result', result)
 
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 dispatch({
                     type: LAY_THONG_TIN_PHONG_VE,
                     data: result.data
                 })
             }
 
-        }catch(err){
+        } catch (err) {
             console.log(err)
             console.log(err?.response?.data)
         }
@@ -169,30 +169,55 @@ export const layThongTinPhongVeAction = (maLichChieu) => {
 export const datVeAction = (objectDatVe) => {
     return async (dispatch) => {
 
-        let  accessToken = localStorage.getItem(ACCESS_TOKEN)
+        let accessToken = localStorage.getItem(ACCESS_TOKEN)
 
         console.log('ob', objectDatVe)
-        try{
+        try {
             let result = await Axios({
                 url: `${DOMAIN}/api/QuanLyDatVe/DatVe`,
                 method: 'POST',
                 data: objectDatVe,
                 headers: {
-                    'Authorization' : `Bearer ${accessToken}`
+                    'Authorization': `Bearer ${accessToken}`
                 }
             })
 
             // console.log('result', result)
-            if(result.status === STATUS_CODE.SUCCESS){
+            if (result.status === STATUS_CODE.SUCCESS) {
                 // console.log('data', result.data)
                 alertThanhCongAction("Đặt vé")
                 dispatch(layThongTinPhongVeAction(objectDatVe.maLichChieu))
             }
 
-        }catch(err){
+        } catch (err) {
             console.log(err?.response)
             console.log(err?.response?.data)
             alertThatBaiAction("Dặt vé", err?.response?.data)
+        }
+    }
+}
+
+export const taoLichChieuAction = (objectLichChieu) => {
+    return async (dispatch) => {
+        let accessToken = localStorage.getItem(ACCESS_TOKEN)
+        try {
+            let result = await Axios({
+                url: `${DOMAIN}/api/QuanLyDatVe/TaoLichChieu`,
+                method: "POST",
+                data: objectLichChieu,
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`
+                }
+            })
+
+            if(result.status === STATUS_CODE.SUCCESS){
+                alertThanhCongAction("Thêm lịch chiếu")
+            }
+
+
+        } catch (err) {
+                alertThatBaiAction("Thêm lịch chiếu", `${err.response?.data}`)
+            // console.log(err.response?.data)
         }
     }
 }

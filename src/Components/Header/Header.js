@@ -72,7 +72,7 @@ export default function Header() {
     return (
         <div className="myHeader">
             <nav className="navbar navbar-expand-md navbar-light bg-light">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <a className="navbar-brand" href="/trangchu">Navbar</a>
                 {/* Nút thu nhỏ khi reponsive */}
                 <button onClick={changeToggle} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     {/* {icon.isOpen ? <i class="fa fa-bars"></i> : <i class="fa fa-times"></i> } */}

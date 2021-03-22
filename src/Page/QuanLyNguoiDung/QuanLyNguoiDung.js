@@ -5,6 +5,7 @@ import { layDanhSachNguoiDungAction, xoaNguoiDungAction } from '../../Redux/acti
 import axios from 'axios';
 import { ACCESS_TOKEN, DOMAIN, STATUS_CODE } from '../../utils/setting';
 import { styled } from '@material-ui/core';
+import { alertThanhCongAction, alertThatBaiAction } from '../../Redux/action/QuanLyModalAlert';
 
 export default function QuanLyNguoiDung() {
 
@@ -119,14 +120,16 @@ export default function QuanLyNguoiDung() {
                         
 
                         promise.then((res) => {
-                            console.log(res.data)
-                            alert('Thêm người dùng thành công')
-                            dispatch(layDanhSachNguoiDungAction()) 
+                            // console.log(res.data)
+                            // alert('Thêm người dùng thành công')
+                            dispatch(layDanhSachNguoiDungAction())
+                            alertThanhCongAction(`Thêm người dùng ${newData.taiKhoan}`) 
                             resolse(res.data)
                         })
                         promise.catch((err) => {
-                            console.log(err.response?.data)
-                            alert("Thêm người dùng thất bại. " + err.response?.data)
+                            // console.log(err.response?.data)
+                            // alert("Thêm người dùng thất bại. " + err.response?.data)
+                            alertThatBaiAction("Thêm người dùng thất bại", `${err.response?.data}`)
                             reject(err)
                         })
 
@@ -153,14 +156,14 @@ export default function QuanLyNguoiDung() {
                         })
 
                         promise.then((res) => {
-                            console.log(res.data)
+                            // console.log(res.data)
                             dispatch(layDanhSachNguoiDungAction())
-                            alert(`Cập nhật người dùng ${newData.taiKhoan} thành công`)
+                            alertThanhCongAction(`Cập nhật người dùng ${newData.taiKhoan}`)
                             resolse(res.data)
                         })
                         promise.catch((err) => {
-                            console.log(err.response?.data)
-                            alert(`Cập nhật người dùng thất bại. ` + err.response?.data)
+                            // console.log(err.response?.data)
+                            alertThatBaiAction(`Cập nhật người dùng `, err.response?.data)
                             reject(err.response?.data)
                         })
 
@@ -182,15 +185,15 @@ export default function QuanLyNguoiDung() {
                         
 
                         promise.then((res) =>{
-                            console.log(res.data)
+                            // console.log(res.data)
                             dispatch(layDanhSachNguoiDungAction())
-                            alert(`Xóa người dùng ${oldData.taiKhoan} thành công`)
+                            alertThanhCongAction(`Xóa người dùng ${oldData.taiKhoan}`)
                             resolse(res.data)
                         })
 
                         promise.catch((err) => {
-                            console.log(err)
-                            alert(`Xóa người dùng ${oldData.taiKhoan} thất bại. ` + err.response?.data)
+                            // console.log(err)
+                            alertThatBaiAction('Xóa người dùng ', err.response?.data)
                             reject(err)
                         })
                     })

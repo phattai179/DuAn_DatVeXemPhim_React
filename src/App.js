@@ -20,6 +20,7 @@ import QuanLyPhim from './Page/QuanLyPhim/QuanLyPhim';
 import ThongTinCaNhan from './Page/ThongTinCaNhan/ThongTinCaNhan';
 import Loading from './Components/Loading/Loading';
 import { DISPLAY_LOADING, HIDE_LOADING } from './Redux/type/TypeLoading';
+import QuanLyLichChieu from './Page/QuanLyLichChieu/QuanLyLichChieu';
 
 export const history = createBrowserHistory()
 
@@ -105,9 +106,10 @@ function App() {
         }} ></Route>
 
         <BookingTemplate path="/datve/:maLichChieu" Component={TrangDatVe}></BookingTemplate>
+        
         <AdminTemplate path="/admin/nguoidung" Component={QuanLyNguoiDung}></AdminTemplate>
         <AdminTemplate path="/admin/phim" Component={QuanLyPhim}></AdminTemplate>
-
+        <AdminTemplate path="/admin/lichchieu" Component={QuanLyLichChieu} ></AdminTemplate>
 
         <Route path="/trangchu" component={TrangChu}></Route>
         <Route path="/" component={TrangChu}></Route>

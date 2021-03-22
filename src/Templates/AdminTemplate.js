@@ -13,6 +13,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MovieIcon from '@material-ui/icons/Movie';
 import PersonIcon from '@material-ui/icons/Person';
+import EventIcon from '@material-ui/icons/Event';
 import HomeIcon from '@material-ui/icons/Home';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -196,7 +197,7 @@ export default function AdminTemplate(props) {
                                     </div>
                                     <Divider />
                                     <List>
-                                        {['Quản lý phim', 'Quản lý người dùng'].map((text, index) => {
+                                        {['Quản lý phim', 'Quản lý người dùng', 'Quản lý lịch chiếu'].map((text, index) => {
                                             let iconElement = ""
                                             let url = ""
                                             if (index === 0) {
@@ -205,6 +206,9 @@ export default function AdminTemplate(props) {
                                             } else if (index === 1) {
                                                 iconElement = <PersonIcon />
                                                 url = "/admin/nguoidung"
+                                            } else if (index === 2) {
+                                                iconElement = <EventIcon/>
+                                                url = "/admin/lichchieu"
                                             }
                                             return <NavLink to={url} style={{ listStyle: "none", color: "black" }} activeStyle={{ color: "#3f51b5" }} key={index}>
                                                 <ListItem button key={text}>

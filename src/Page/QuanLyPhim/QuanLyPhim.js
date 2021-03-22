@@ -7,6 +7,7 @@ import { KeyboardDatePicker } from '@material-ui/pickers'
 import { layDanhSachPhimAction } from '../../Redux/action/QuanLyPhimAction';
 import { ACCESS_TOKEN, DOMAIN } from '../../utils/setting';
 import Axios from 'axios'
+import { alertThanhCongAction, alertThatBaiAction } from '../../Redux/action/QuanLyModalAlert';
 
 
 export default function QuanLyPhim() {
@@ -30,18 +31,26 @@ export default function QuanLyPhim() {
             render: rowData => <span>{rowData.trailer.substr(0, 15)}</span>
 
         },
+        // e => props.onChange(e.target.files[0])}
         {
             title: 'Hình ảnh', field: 'hinhAnh',
-            render: rowData => <img src={rowData.hinhAnh} style={{ width: "80px", height: "120px" }} ></img>,
-            editComponent: props => 
-                (
+            render: rowData =>
+                <img src={rowData.hinhAnh} style={{ width: "80px", height: "120px" }} ></img>,
+            initialEditValue: new File([new Blob()], "file placeholder for add new"),
+            editComponent: props => {
+                return (
                     <div>
-                        <input name="hinhAnh" type="file" onChange={e =>
-                            props.onChange(e.target.files[0])} ></input>
-                        <img src={props.value} style={{ width: "80px", height: "120px" }} ></img>
+                        <input name="hinhAnh" type="file" onChange={(e) => {
+                            console.log('propsHinhAnh', e.target.files[0])
+
+                            props.onChange(e.target.files[0])
+                        }} ></input>
+                        <img src={typeof props.value == "string" ? props.value : window.URL.createObjectURL(props.value)} style={{ width: "80px", height: "120px" }} ></img>
                     </div>
 
                 )
+            }
+
         },
 
         {
@@ -126,14 +135,15 @@ export default function QuanLyPhim() {
                         })
 
                         promise.then((res) => {
-                            alert(`Thêm phim ${newDataUpdate.tenPhim} thành công`)
+                            // alert(`Thêm phim ${newDataUpdate.tenPhim} thành công`)
                             // console.log('result', res.data)
                             dispatch(layDanhSachPhimAction())
+                            alertThanhCongAction(`Thêm phim ${newData.tenPhim}`)
                             resolve(res.data)
                         })
                         promise.catch((err) => {
-                            console.log(err.response?.data)
-                            alert(`Thêm phim thất bại. ` + err.response?.data)
+                            // console.log(err.response?.data)
+                            alertThatBaiAction("Thêm phim ", err.response?.data)
                             reject(err)
                         })
 
@@ -172,13 +182,15 @@ export default function QuanLyPhim() {
                         })
 
                         promise.then((res) => {
-                            alert(`Cập nhật phim ${newData.tenPhim} thành công`)
+                            // alert(`Cập nhật phim ${newData.tenPhim} thành công`)
                             console.log(res.data)
                             dispatch(layDanhSachPhimAction())
+                            alertThanhCongAction(`Cập nhật phim ${newData.tenPhim}`)
                             resolve(res.data)
                         })
                         promise.catch((err) => {
-                            alert(`Cập nhật phim thất bại. ` + err.response?.data)
+                            // alert(`Cập nhật phim thất bại. ` + err.response?.data)
+                            alertThatBaiAction("Cập nhật phim ", err.response?.data)
                             reject(err)
                         })
                     })
