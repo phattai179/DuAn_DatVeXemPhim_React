@@ -15,9 +15,19 @@ export default function PhimItem(props) {
     const dispatch = useDispatch()
 
     // Lấy trailerPhim và cắt lại theo yêu cầu 
-    // console.log(itemPhim.trailer)
-    let trailerPhimItem = itemPhim.trailer.substr(30)
-    // console.log('trailerPhim', trailerPhimItem)
+    console.log(itemPhim.trailer)
+    let trailerPhimItem = ""
+
+    let n = itemPhim.trailer.indexOf("watch?v=")
+
+    if(n !== -1){
+        trailerPhimItem = itemPhim.trailer.substr(32)
+
+    }else{
+        trailerPhimItem = itemPhim.trailer.substr(30)
+    }
+
+    console.log('trailerPhim', trailerPhimItem)
 
     return (
         <div  className="myListFilm_item" >

@@ -61,9 +61,10 @@ export default function QuanLyLichChieu() {
             [name]: event.target.value,
         });
 
-        if (state.maRap !== "" && state.giaVe !== "") {
+        if(name === "ngayChieuGioChieu"){
             setState({
                 ...state,
+                [name]: event.target.value,
                 valid: true
             })
         }
