@@ -42,7 +42,7 @@ export default function DropdownDatVe() {
                         ...phim,
                         maPhim: itemPhim.maPhim,
                         tenPhim: itemPhim.tenPhim,
-                        cumRap: "Rạp", 
+                        cumRap: "Rạp",
                         ngayXem: "Ngày xem",
                         lichChieu: "Lịch chiếu",
                         maLichChieu: 0
@@ -142,13 +142,13 @@ export default function DropdownDatVe() {
 
     return (
         <div id="myDropdown" className="container d-none d-lg-block">
-            <div className="row" style={{lineHeight: "1"}}>
+            <div className="row" style={{ lineHeight: "1" }}>
                 {/* DropdownPhim */}
                 <div className="myDropdownPhim col-4 col-xl-4">
                     <button id="btnDropdownPhim" className="btn dropdown-toggle" type="button" id="dropdownMenuPhim" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {phim.tenPhim}
                     </button>
-                    <div style={{marginLeft: "15px"}} className="dropdown-menu dropdownShowPhim" aria-labelledby="dropdownMenuPhim">
+                    <div style={{ marginLeft: "15px" }} className="dropdown-menu dropdownShowPhim" aria-labelledby="dropdownMenuPhim">
                         {renderPhim()}
                     </div>
                 </div>
@@ -157,7 +157,7 @@ export default function DropdownDatVe() {
                 {/* Dropdowm Cụm Rạp */}
                 <div className="myDropdownCumRap col col-xl-2">
                     <button className="btn dropdown-toggle" type="button" id="dropdownMenuCumRap" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {phim.cumRap.length > 17 ? phim.cumRap.substr(0,17) + "..." : phim.cumRap}
+                        {phim.cumRap.length > 17 ? phim.cumRap.substr(0, 17) + "..." : phim.cumRap}
                     </button>
 
                     <Fragment>
@@ -196,14 +196,14 @@ export default function DropdownDatVe() {
                 <div className="myDropdownLichChieu col col-xl-2">
                     <button className="btn dropdown-toggle" type="button" id="dropdownMenuLichChieu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {phim.lichChieu}
-                </button>
+                    </button>
 
                     <Fragment>
                         {phim.ngayXem !== "Ngày xem" ?
                             <div className="dropdown-menu dropdownShowLichChieu" aria-labelledby="dropdownMenuLichChieu">
                                 {renderLichChieu()}
 
-                            </div> : 
+                            </div> :
                             <Fragment>
                                 {renderKhongHienThi("ngày xem", "dropdownMenuLichChieu")}
                             </Fragment>
@@ -214,9 +214,14 @@ export default function DropdownDatVe() {
 
                 {/* Btn Mua Vé */}
                 <div className="muaVe col col-xl-2 pl-0">
-                    <NavLink to={`/datve/${phim.maLichChieu}`} className="btnMuaVe btn">
-                        MUA VÉ NGAY
+                    {phim.maLichChieu === 0 ?
+                        <button disabled className="btnMuaVe btn" style={{ backgroundColor: "#949494", color:"white", background: "#949494", cursor: 'not-allowed' }} >MUA VÉ NGAY</button>
+                        :
+                        <NavLink to={`/datve/${phim.maLichChieu}`} className="btnMuaVe btn">
+                            MUA VÉ NGAY
                 </NavLink>
+                    }
+
                 </div>
 
             </div>

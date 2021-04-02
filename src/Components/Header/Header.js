@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { alertDangXuat } from '../../Redux/action/QuanLyModalAlert'
 import { DANG_XUAT, LAY_USER_DANG_NHAP } from '../../Redux/type/TypeQuanLyUser'
 import { ACCESS_TOKEN, USER_DANG_NHAP } from '../../utils/setting'
@@ -81,7 +81,7 @@ export default function Header() {
                     {isOpen.isActive ? <i className="fa fa-bars"></i> : <i className="fa fa-times"></i>}
 
                 </button>
-                <div className="navbar-collapse collapse myHeader_movie " id="navbarNav">
+                <div className="navbar-collapse collapse myHeader_movie" id="navbarNav">
                     <ul className="navbar-nav mx-auto">
                         <li className="nav-item nav-itemUser d-md-none d-flex" style={{ justifyContent: "center" }}>
                             {userDangNhap?.hoTen ?
@@ -128,7 +128,7 @@ export default function Header() {
                             <a className="nav-link" href="#">Tin Tức</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#ungDung">Ứng Dụng</a>
+                            <Link className="nav-link" to="#ungDung">Ứng Dụng</Link>
                         </li>
                         <li className="nav-item">
                             <NavLink to="/admin/phim" className="nav-link">Admin</NavLink>

@@ -34,7 +34,7 @@ export default function TrangChu() {
 
     return (
         <div>
-            <Loading/>
+            {/* <Loading/> */}
             <Header></Header>
             <Carousel></Carousel>
             <DropdownDatVe></DropdownDatVe>
