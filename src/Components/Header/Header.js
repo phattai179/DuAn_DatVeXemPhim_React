@@ -94,11 +94,7 @@ export default function Header() {
                                     <div className="myHeader_dangNhapDetail">
                                         <NavLink to="/thongtin" className="thongTin" >Thông tin người dùng</NavLink>
                                         <p className="thongTin" onClick={() => {
-                                            // localStorage.removeItem(ACCESS_TOKEN)
-                                            // localStorage.removeItem(USER_DANG_NHAP)
-                                            // dispatch({
-                                            //     type: DANG_XUAT
-                                            // })
+                                            
                                             dispatch(alertDangXuat())
                                         }}>Đăng xuất</p>
                                     </div>
@@ -125,7 +121,7 @@ export default function Header() {
                             <a className="nav-link" href="#cumRap">Cụm Rạp</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Tin Tức</a>
+                            <a className="nav-link" href="#tinTuc">Tin Tức</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#ungDung">Ứng Dụng</a>

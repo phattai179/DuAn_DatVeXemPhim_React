@@ -1,0 +1,41 @@
+@import '../../scss/main.scss';
+
+.myTinTuc{
+    margin-bottom: 100px;
+    .bgTinTuc{
+        background-image: url('../../assets/img/back-news.png');
+        width: 100%;
+        height: 150px;
+    }
+    .container{
+        max-width: 1000px;
+    }
+    .tinTuc_item{
+        img{
+            border-radius: 5px;
+        }
+        .tinTuc_title{
+            color: black;
+            font-size: $fs-2 - 2;
+            margin: 10px 0;
+            cursor: pointer;
+            &:hover{
+                color: $color-orange-0;
+            }
+        }
+        .tinTuc_text{
+            color: $color-gray-8;
+            font-size: $fs-0;
+        }
+    }
+}
+
+.myTinTuc{
+    @media screen and (max-width: 576px) {
+        .tinTuc_item{
+            .imgTinTuc{
+                height: 250px !important;
+            }
+        }
+    }
+}

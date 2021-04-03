@@ -7,6 +7,7 @@ import DropdownDatVe from '../../Components/DropdownDatVe/DropdownDatVe'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
 import Loading from '../../Components/Loading/Loading'
+import TinTuc from '../../Components/TinTuc/TinTuc'
 import UngDung from '../../Components/UngDung/UngDung'
 import { DISPLAY_LOADING, HIDE_LOADING } from '../../Redux/type/TypeLoading'
 
@@ -39,8 +40,9 @@ export default function TrangChu() {
             <Carousel></Carousel>
             <DropdownDatVe></DropdownDatVe>
             <DanhSachPhim></DanhSachPhim>
-            <UngDung></UngDung>
             <BoxBooking></BoxBooking>
+            <TinTuc></TinTuc>
+            <UngDung></UngDung>
             <Footer></Footer>
         </div>
     )

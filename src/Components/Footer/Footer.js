@@ -36,7 +36,7 @@ export default function Footer() {
                         <div className="myFooter_company text-center text-md-left d-block d-md-flex" >
                             <img src="/img/Footer-logoCompany.jpg"></img>
                             <div className="myFooter_company_content">
-                                <h4 className="myFooter_title">TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN CYBERSOFT</h4>
+                                <h4 className="myFooter_title">SẢN PHẨM CỦA CÔNG TY CỔ PHẦN CYBERSOFT</h4>
                                 <p>Địa chỉ: 82 Ung Văn Khiêm, Quận Bình Thạnh,TP.Hồ Chí Minh</p>
                                 <p>Số Điện Thoại (Hotline): 096.105.1014</p>
                                 <p>Email: support@cyber.vn</p>
