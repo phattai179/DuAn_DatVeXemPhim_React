@@ -19,14 +19,22 @@
                     margin-bottom: 0;
                     margin-left: 15px;
                     color: $color-black-1;
-                    font-size: $fs-2;
+                    font-size: $fs-1 + 2;
                     font-weight: 700;
+                    span{
+                        color: white;
+                        background-color: $color-orange-0;
+                        padding: 1px 5px;
+                        font-size: $fs-0;
+                        border-radius: 3px;
+                        margin-right: 8px
+                    }
                 };
                 p:nth-child(2){
                     margin-bottom: 0;
                     margin-left: 15px;
                     color: $color-gray-0;
-                    font-size: $fs-1;
+                    font-size: $fs-0;
                 }
                 
             }
@@ -47,8 +55,8 @@
                     line-height: 1;
                     padding: 8px;
                     width: 90%;
-                    background-color: $color-gray-1;
-                    border: 1px solid $color-black-1;
+                    background-color: hsla(0,0%,96.5%,.6);
+                    border: 1px solid $color-gray-6;
                     border-radius: 5px;
                     .myBoxLichChieu_gio{
                         color: $color-green-0;

@@ -17,7 +17,7 @@ export default function TrangChu() {
 
     useEffect(() => {
         renderLoading()
-    })
+    },[])
 
 
     let renderLoading = () => {

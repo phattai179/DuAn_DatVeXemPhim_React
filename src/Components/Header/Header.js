@@ -128,7 +128,7 @@ export default function Header() {
                             <a className="nav-link" href="#">Tin Tức</a>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#ungDung">Ứng Dụng</Link>
+                            <a className="nav-link" href="#ungDung">Ứng Dụng</a>
                         </li>
                         <li className="nav-item">
                             <NavLink to="/admin/phim" className="nav-link">Admin</NavLink>

@@ -42,10 +42,10 @@ export default function BoxLichChieuCumRap(props) {
                             return (
                             <div key={index} className="myBoxLichChieu_item">
                                 <div className="myBoxLichChieu_intro d-flex" data-toggle="collapse" data-target={`#showLichChieu${index}`} aria-expanded="false" aria-controls={`showLichChieu${index}`}>
-                                    <img src={phim.hinhAnh} style={{ width: "80px", height: "100px" }}></img>
+                                    <img src={phim.hinhAnh} style={{ width: "60px", height: "70px" }}></img>
                                     <div className="myBoxLichChieu_info">
-                                        <p>{phim.tenPhim}</p>
-                                        <p>120 phút</p>
+                                        <p> <span>C16</span>- {phim.tenPhim}</p>
+                                        <p>120 phút - IMDb 0</p>
                                     </div>
                                     <div className="myBoxLichChieu_icon">
                                         <i className="fa fa-angle-down"></i>
