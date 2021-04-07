@@ -118,7 +118,7 @@ export default function TinTuc() {
 
             </div>
             <div className="container">
-                <h4 className="text-center mt-3 mb-4" style={{ color: "#fb4226" }}>TIN TỨC</h4>
+                <h3 className="text-center mt-3 mb-4" style={{ color: "#fb4226" }}>TIN TỨC</h3>
                 <div className="row">
                     {renderTinTuc()}
                     <div className="col-12 col-sm-4">

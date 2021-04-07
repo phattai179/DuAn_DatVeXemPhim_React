@@ -51,6 +51,8 @@ export default function PopupComment() {
             type: ADD_COMMENT_MODAL,
             dataComment: userComment
         })
+
+        
         
         closeComment()
         
