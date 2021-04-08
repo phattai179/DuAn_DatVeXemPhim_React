@@ -91,7 +91,7 @@ export default function ChiTietThanhToan(props) {
                     }} style={{ cursor: "pointer" }}>Chọn combo</p>
                     <p className="text-success">{tienThucAn.toLocaleString()} vnđ</p>
                 </div>
-                <form className="method_payment text-left">
+                <div className="method_payment text-left">
                     <div className="method_detail">
                         <input type="radio" name="payment" value="ATM" id="ATM" className="inputChecked" checked={true}></input>
                         <img src="/img/ATMNoiDia.png"></img>
@@ -111,7 +111,7 @@ export default function ChiTietThanhToan(props) {
                         <label htmlFor="tienmat">Thanh toán tiền mặt</label>
                     </div>
 
-                </form>
+                </div>
                 <button onClick={() => {
 
                     let userLogin = JSON.parse(localStorage.getItem(USER_DANG_NHAP))

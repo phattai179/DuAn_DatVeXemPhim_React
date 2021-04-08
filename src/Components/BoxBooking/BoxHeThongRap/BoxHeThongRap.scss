@@ -30,6 +30,18 @@
         }
         .active{
             opacity: 1;
+            &::after{
+                content: "";
+                position: absolute;
+                width: 60%;
+                margin: 0 auto;
+                height: 2px;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+                background-color: $color-orange-0;
+                box-shadow: 0 0px 5px $color-orange-0;
+            }
         }
     }
 }

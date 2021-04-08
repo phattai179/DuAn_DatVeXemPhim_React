@@ -8,6 +8,7 @@ import './Carousel.scss'
 import { DOMAIN } from '../../utils/setting';
 import { LAY_DANH_SACH_PHIM } from '../../Redux/type/TypeQuanLyPhim';
 import { layDanhSachPhimAction } from '../../Redux/action/QuanLyPhimAction';
+import { Fragment } from 'react';
 
 
 export default function Carousel(props) {
@@ -81,49 +82,53 @@ export default function Carousel(props) {
                 active = "active";
             }
 
-            return <div className={`carousel-item ${active}`} key={index}
-                style={{
-                    backgroundImage: `url(${phim.hinhAnh})`,
-                    
-                }}>
-                    
-                <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={phim.trailer} onClose={() => setOpen(false)}></ModalVideo>
-                <button className="btn-play" onClick={() => {
-                    setOpen(true)
-                }} >
-                    <i className="fa fa-play"></i>
-                </button>
-            </div>
+            return (
+
+                <div className={`carousel-item ${active}`} key={index}
+                    style={{
+                        backgroundImage: `url(${phim.hinhAnh})`,
+                    }}>
+                    <ModalVideo channel="youtube" autoplay isOpen={isOpen} videoId={phim.trailer} onClose={() => setOpen(false)}></ModalVideo>
+                    <button className="btn-play" style={{zIndex: "30"}} onClick={() => {
+                        setOpen(true)
+                    }} >
+
+                        <i className="fa fa-play"></i>
+                    </button>
+                </div>
+            )
         })
     }
 
     return (
-        <div className="myCarousel">
-            <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to={0} className="active carousel_dot" />
-                    <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={1} />
-                    <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={2} />
-                    <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={3} />
-                    <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={4} />
-                </ol>
-                <div className="carousel-inner">
-                    {renderPhimCarousel()}
-                    
+            <div className="myCarousel">
+                <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+                    <ol className="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to={0} className="active carousel_dot" />
+                        <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={1} />
+                        <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={2} />
+                        <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={3} />
+                        <li className="carousel_dot" data-target="#carouselExampleIndicators" data-slide-to={4} />
+                    </ol>
+                    <div className="carousel-inner">
+                        {renderPhimCarousel()}
+
+                    </div>
+
+                    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                        <span className="sr-only">Previous</span>
+                    </a>
+                    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                        <span className="sr-only">Next</span>
+                    </a>
                 </div>
-                <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true" />
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true" />
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
-            <div className="myCarouselOverlay">
+                <div className="myCarouselOverlay">
+
+                </div>
 
             </div>
 
-        </div>
     )
 }
